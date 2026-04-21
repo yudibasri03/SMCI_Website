@@ -30,7 +30,7 @@ const faqs = [
     items: [
       {
         q: "Apa perbedaan paket Elite, Ultimate, dan Per Mentor?",
-        a: "Paket Elite: belajar dengan 1 mentor pilihan, sesi 1-on-1 terjadwal, akses materi eksklusif, dan support grup. Paket Ultimate: akses semua 4 mentor sekaligus, sesi tak terbatas, panduan Prop Firm, dan priority support 24/7. Per Mentor: opsi fleksibel untuk fokus pada 1 bidang spesifik — bisa dikombinasikan dengan mentor lain sesuai kebutuhan.",
+        a: "Paket Elite: akses semua 4 mentor SMCI (Oscar, James, Wahyudi, Albert) dengan sesi 1-on-1 terjadwal, materi eksklusif, dan support grup. Paket Ultimate: semua dari Elite ditambah akses ke 1 mentor tamu eksklusif, sesi tak terbatas, panduan Prop Firm, dan priority support 24/7. Per Mentor: opsi fleksibel untuk fokus pada 1 mentor dan bidang spesifik — bisa dikombinasikan sesuai kebutuhan.",
       },
       {
         q: "Bagaimana cara memilih mentor yang tepat untuk saya?",

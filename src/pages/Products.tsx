@@ -92,9 +92,11 @@ const packageProducts = [
     tagColor: "var(--cyan)",
     accentColor: "var(--cyan)",
     description:
-      "Program mentoring intensif dengan 1 mentor pilihan. Cocok untuk trader yang ingin fokus mendalami satu bidang spesifik.",
+      "Akses ke semua 4 mentor SMCI dengan sesi terjadwal. Kuasai SMC Strategy, Volume Profile, Psikologi, dan Fundamental secara menyeluruh.",
+    mentors: ["Oscar", "James", "Wahyudi", "Albert"],
+    guestMentor: false,
     features: [
-      "Pilih 1 mentor spesialisasi",
+      "Akses 4 mentor SMCI",
       "Sesi 1-on-1 terjadwal",
       "Akses materi eksklusif Elite",
       "Review chart & trade setup",
@@ -116,14 +118,16 @@ const packageProducts = [
     tagColor: "var(--gold)",
     accentColor: "var(--gold)",
     description:
-      "Paket mentoring terlengkap dengan akses ke semua mentor. Untuk trader serius yang ingin menguasai SMC secara menyeluruh dan siap Prop Firm.",
+      "Semua keunggulan Elite ditambah akses ke 1 mentor tamu eksklusif. Untuk trader serius yang ingin perspektif lebih luas dan siap Prop Firm.",
+    mentors: ["Oscar", "James", "Wahyudi", "Albert"],
+    guestMentor: true,
     features: [
-      "Akses semua 4 mentor",
+      "Akses 4 mentor SMCI",
+      "Akses 1 mentor tamu eksklusif",
       "Sesi mentoring tak terbatas",
       "Panduan Prop Firm challenge",
       "Volume Profile & Order Flow",
       "Psikologi trading mendalam",
-      "Analisis news & fundamental",
       "Priority support 24/7",
       "Akses seumur hidup ke materi",
     ],
@@ -226,11 +230,14 @@ export default function Products() {
     setSelectedMentor(m);
 
     if (m) {
-      // If a specific mentor is selected, scroll to mentor section after short delay
+      // Scroll to the tab area (showing mentor grid + detail), with offset for navbar
       setTimeout(() => {
-        const el = document.getElementById("mentor-section");
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 120);
+        const el = document.getElementById("products-tabs");
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 96;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }, 200);
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -256,7 +263,7 @@ export default function Products() {
 
         {/* ── TABS ── */}
         <FadeIn delay={0.1}>
-          <div style={{ display: "flex", gap: 8, marginBottom: 56, flexWrap: "wrap" }}>
+          <div id="products-tabs" style={{ display: "flex", gap: 8, marginBottom: 56, flexWrap: "wrap" }}>
             {tabs.map((tab, i) => (
               <button
                 key={tab}
@@ -289,9 +296,8 @@ export default function Products() {
               <div className="glass" style={{ borderRadius: 16, padding: "16px 22px", marginBottom: 36, display: "flex", alignItems: "center", gap: 14, borderColor: "rgba(29,223,184,0.15)" }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
                 <p style={{ fontSize: 14, color: "var(--text-muted)", lineHeight: 1.6 }}>
-                  <strong style={{ color: "#fff" }}>Elite</strong> — pilih 1 mentor spesialisasi.&nbsp;&nbsp;
-                  <strong style={{ color: "#fff" }}>Ultimate</strong> — akses semua 4 mentor sekaligus.&nbsp;&nbsp;
-                  Atau tab <strong style={{ color: "var(--cyan)" }}>Per Mentor</strong> untuk pilih bidang spesifik.
+                  <strong style={{ color: "#fff" }}>Elite</strong> — akses 4 mentor SMCI dengan sesi terjadwal.&nbsp;&nbsp;
+                  <strong style={{ color: "#fff" }}>Ultimate</strong> — semua dari Elite + 1 mentor tamu eksklusif &amp; sesi tak terbatas.
                 </p>
               </div>
 
@@ -313,13 +319,17 @@ export default function Products() {
                     <h3 style={{ fontFamily: "var(--font-display)", fontSize: "26px", fontWeight: 800, marginBottom: 12 }}>{product.name}</h3>
                     <p style={{ fontSize: "15px", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: 20 }}>{product.description}</p>
 
-                    {product.id === "ultimate" && (
-                      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
-                        {["Oscar", "James", "Wahyudi", "Albert"].map(n => (
-                          <span key={n} style={{ fontSize: "12px", padding: "4px 12px", borderRadius: 8, background: "rgba(29,223,184,0.08)", border: "1px solid rgba(29,223,184,0.2)", color: "var(--cyan)", fontWeight: 600 }}>{n}</span>
-                        ))}
-                      </div>
-                    )}
+                    {/* Mentor chips — show for both Elite and Ultimate */}
+                    <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
+                      {product.mentors.map(n => (
+                        <span key={n} style={{ fontSize: "12px", padding: "4px 12px", borderRadius: 8, background: `rgba(${rgb(product.accentColor)},0.08)`, border: `1px solid rgba(${rgb(product.accentColor)},0.2)`, color: product.accentColor, fontWeight: 600 }}>{n}</span>
+                      ))}
+                      {product.guestMentor && (
+                        <span style={{ fontSize: "12px", padding: "4px 12px", borderRadius: 8, background: "rgba(240,180,41,0.1)", border: "1px solid rgba(240,180,41,0.35)", color: "var(--gold)", fontWeight: 700 }}>
+                          + 1 Mentor Tamu ✦
+                        </span>
+                      )}
+                    </div>
 
                     <div style={{ height: 1, background: "var(--border-subtle)", marginBottom: 20 }} />
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "11px 8px", flex: 1, marginBottom: 32 }}>
@@ -342,7 +352,7 @@ export default function Products() {
 
           {/* ── TAB 1: PER MENTOR ── */}
           {activeTab === 1 && (
-            <motion.div key="permentor" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>
+            <motion.div id="mentor-section" key="permentor" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>
               <p style={{ fontSize: 15, color: "var(--text-muted)", marginBottom: 32, lineHeight: 1.75, maxWidth: 600 }}>
                 Pilih mentor sesuai bidang yang ingin kamu dalami. Setiap mentor punya spesialisasi berbeda — bisa mulai dari satu, atau kombinasikan beberapa sesuai kebutuhanmu.
               </p>
@@ -356,9 +366,9 @@ export default function Products() {
                       setSelectedMentor(next);
                       if (next) {
                         setTimeout(() => {
-                          const el = document.getElementById("mentor-section");
-                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }, 120);
+                          const el = document.getElementById("mentor-detail");
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                        }, 150);
                       }
                     }}
                     style={{
@@ -392,7 +402,7 @@ export default function Products() {
               {/* Detail panel */}
               <AnimatePresence>
                 {selected && (
-                  <motion.div id="mentor-section" key={selected.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  <motion.div id="mentor-detail" key={selected.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     className="glass" style={{ borderRadius: 22, padding: "36px", borderColor: `rgba(${rgb(selected.color)},0.25)`, position: "relative", overflow: "hidden" }}>
                     <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${selected.color} 0%, transparent 60%)` }} />
 
