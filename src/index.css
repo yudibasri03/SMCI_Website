@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Manrope', sans-serif;
 }
 
 :root {
@@ -24,10 +24,12 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
   background: linear-gradient(160deg, #062A35 0%, #083340 40%, #0A3D50 100%);
   min-height: 100vh;
   color: var(--text-primary);
