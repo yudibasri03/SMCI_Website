@@ -232,7 +232,6 @@ export default function Home() {
                 {mentorPreview.map((m) => (
                   <div key={m.name} className="glass glass-hover" style={{ borderRadius: 18, padding: "24px 20px", position: "relative", overflow: "hidden", cursor: "pointer" }}
                     onClick={() => {
-                      window.scrollTo({ top: 0 });
                       navigate(`/products?tab=permentor&mentor=${m.id}`);
                     }}>
                     <div className="card-accent-top" />

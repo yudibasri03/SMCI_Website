@@ -224,7 +224,16 @@ export default function Products() {
     const m = p.get("mentor") ?? null;
     setActiveTab(t);
     setSelectedMentor(m);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (m) {
+      // If a specific mentor is selected, scroll to mentor section after short delay
+      setTimeout(() => {
+        const el = document.getElementById("mentor-section");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 120);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }, [search]);
 
   const selected = mentorProducts.find((m) => m.id === selectedMentor);
@@ -342,7 +351,16 @@ export default function Products() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 16, marginBottom: 36 }}>
                 {mentorProducts.map((m, i) => (
                   <motion.button key={m.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.07, duration: 0.45 }}
-                    onClick={() => setSelectedMentor(selectedMentor === m.id ? null : m.id)}
+                    onClick={() => {
+                      const next = selectedMentor === m.id ? null : m.id;
+                      setSelectedMentor(next);
+                      if (next) {
+                        setTimeout(() => {
+                          const el = document.getElementById("mentor-section");
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }, 120);
+                      }
+                    }}
                     style={{
                       background: selectedMentor === m.id ? `rgba(${rgb(m.color)},0.1)` : "rgba(6,50,62,0.6)",
                       border: `1.5px solid ${selectedMentor === m.id ? m.color : "rgba(255,255,255,0.1)"}`,
@@ -374,7 +392,7 @@ export default function Products() {
               {/* Detail panel */}
               <AnimatePresence>
                 {selected && (
-                  <motion.div key={selected.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  <motion.div id="mentor-section" key={selected.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     className="glass" style={{ borderRadius: 22, padding: "36px", borderColor: `rgba(${rgb(selected.color)},0.25)`, position: "relative", overflow: "hidden" }}>
                     <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${selected.color} 0%, transparent 60%)` }} />
 

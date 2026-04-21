@@ -13,7 +13,11 @@ import Contact from "./pages/Contact";
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    // Don't scroll to top if URL has mentor param — Products page handles its own scroll
+    const hasMentor = window.location.search.includes("mentor=");
+    if (!hasMentor) {
+      window.scrollTo({ top: 0 });
+    }
   }, [location]);
   return null;
 }
