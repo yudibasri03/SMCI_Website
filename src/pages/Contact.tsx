@@ -44,10 +44,14 @@ const channels = [
 const interests = [
   "Private Mentoring Elite",
   "Private Mentoring Ultimate",
+  "Mentoring Per Mentor — Oscar (SMCI Strategy)",
+  "Mentoring Per Mentor — James (Volume Profile)",
+  "Mentoring Per Mentor — Wahyudi (Psikologi & Propfirm)",
+  "Mentoring Per Mentor — Albert (News & Fundamental)",
   "SMCI All-in-One Indicator",
   "SMCI Simple Entry",
   "SMCI Ebook",
-  "Lainnya",
+  "Konsultasi dulu (belum tahu pilih apa)",
 ];
 
 export default function Contact() {
@@ -110,7 +114,7 @@ export default function Contact() {
                       <div style={{ fontSize: "12px", color: "var(--text-muted)" }}>{ch.desc}</div>
                     </div>
                     <div style={{ textAlign: "right" }}>
-                      <div style={{ fontSize: "11px", color: ch.color, fontWeight: 600, marginBottom: 4 }}>{ch.detail}</div>
+                      <div style={{ fontSize: "13px", color: ch.color, fontWeight: 600, marginBottom: 4 }}>{ch.detail}</div>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                   </motion.a>
@@ -118,7 +122,7 @@ export default function Contact() {
               </div>
 
               {/* Office hours */}
-              <div className="glass" style={{ borderRadius: 18, padding: "28px", borderColor: "rgba(34,193,220,0.1)" }}>
+              <div className="glass" style={{ borderRadius: 18, padding: "28px", borderColor: "rgba(29,223,184,0.1)" }}>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cyan)", marginBottom: 16 }}>Jam Operasional</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   {[
@@ -138,12 +142,12 @@ export default function Contact() {
 
           {/* Right: Form */}
           <FadeIn direction="right">
-            <div className="glass" style={{ borderRadius: 24, padding: "40px", position: "relative", overflow: "hidden", borderColor: "rgba(34,193,220,0.12)" }}>
+            <div className="glass" style={{ borderRadius: 24, padding: "40px", position: "relative", overflow: "hidden", borderColor: "rgba(29,223,184,0.12)" }}>
               <div className="card-accent-top" />
 
               {sent ? (
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: "center", padding: "48px 24px" }}>
-                  <div style={{ width: 72, height: 72, borderRadius: "50%", background: "rgba(34,193,220,0.1)", border: "1px solid rgba(34,193,220,0.3)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
+                  <div style={{ width: 72, height: 72, borderRadius: "50%", background: "rgba(29,223,184,0.1)", border: "1px solid rgba(29,223,184,0.3)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
                   <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 800, marginBottom: 12 }}>Pesan Terkirim!</h3>
@@ -158,7 +162,7 @@ export default function Contact() {
                   <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                     {/* Name */}
                     <div>
-                      <label style={{ display: "block", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 10 }}>Nama Lengkap *</label>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 10 }}>Nama Lengkap *</label>
                       <input
                         required
                         value={form.name}
@@ -172,7 +176,7 @@ export default function Contact() {
 
                     {/* WhatsApp */}
                     <div>
-                      <label style={{ display: "block", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 10 }}>Nomor WhatsApp *</label>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 10 }}>Nomor WhatsApp *</label>
                       <input
                         required
                         value={form.wa}
@@ -187,7 +191,7 @@ export default function Contact() {
 
                     {/* Interest */}
                     <div>
-                      <label style={{ display: "block", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 10 }}>Minat Produk</label>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 10 }}>Minat Produk</label>
                       <select
                         value={form.interest}
                         onChange={e => setForm(f => ({ ...f, interest: e.target.value }))}
@@ -202,7 +206,7 @@ export default function Contact() {
 
                     {/* Message */}
                     <div>
-                      <label style={{ display: "block", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 10 }}>Pesan</label>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 10 }}>Pesan</label>
                       <textarea
                         rows={4}
                         value={form.message}
@@ -222,7 +226,7 @@ export default function Contact() {
                         </>
                       )}
                     </button>
-                    <p style={{ fontSize: "11px", color: "var(--text-muted)", textAlign: "center" }}>Kamu akan diarahkan ke WhatsApp untuk melanjutkan percakapan.</p>
+                    <p style={{ fontSize: "13px", color: "var(--text-muted)", textAlign: "center" }}>Kamu akan diarahkan ke WhatsApp untuk melanjutkan percakapan.</p>
                   </form>
                 </>
               )}

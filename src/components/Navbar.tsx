@@ -51,17 +51,17 @@ export default function Navbar() {
         <button onClick={() => handleNav("/")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{
             width: 38, height: 38, borderRadius: "10px",
-            background: "linear-gradient(135deg, rgba(34,193,220,0.2) 0%, rgba(34,193,220,0.05) 100%)",
-            border: "1px solid rgba(34,193,220,0.3)",
+            background: "linear-gradient(135deg, rgba(29,223,184,0.2) 0%, rgba(29,223,184,0.05) 100%)",
+            border: "1px solid rgba(29,223,184,0.3)",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22C1DC" strokeWidth="2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DDFB8" strokeWidth="2">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           </div>
           <div style={{ textAlign: "left" }}>
             <div style={{ fontFamily: "var(--font-display)", fontSize: "16px", fontWeight: 800, color: "#fff", lineHeight: 1.1 }}>SMCI</div>
-            <div style={{ fontSize: "9px", letterSpacing: "0.2em", color: "var(--cyan)", fontWeight: 600 }}>COMMUNITY</div>
+            <div style={{ fontSize: "11px", letterSpacing: "0.2em", color: "var(--cyan)", fontWeight: 600 }}>COMMUNITY</div>
           </div>
         </button>
 
@@ -74,7 +74,7 @@ export default function Navbar() {
                 key={href}
                 onClick={() => handleNav(href)}
                 style={{
-                  background: active ? "rgba(34,193,220,0.1)" : "transparent",
+                  background: active ? "rgba(29,223,184,0.1)" : "transparent",
                   border: "none",
                   borderRadius: "8px",
                   padding: "8px 16px",
@@ -102,8 +102,8 @@ export default function Navbar() {
         <button
           onClick={() => setMenuOpen(p => !p)}
           style={{
-            background: menuOpen ? "rgba(34,193,220,0.12)" : "rgba(255,255,255,0.05)",
-            border: `1px solid ${menuOpen ? "rgba(34,193,220,0.3)" : "rgba(255,255,255,0.08)"}`,
+            background: menuOpen ? "rgba(29,223,184,0.12)" : "rgba(255,255,255,0.05)",
+            border: `1px solid ${menuOpen ? "rgba(29,223,184,0.3)" : "rgba(255,255,255,0.08)"}`,
             borderRadius: "10px", width: 40, height: 40,
             display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 5,
             cursor: "pointer", transition: "all 0.2s",
@@ -143,7 +143,7 @@ export default function Navbar() {
                   transition={{ delay: i * 0.05 }}
                   onClick={() => handleNav(href)}
                   style={{
-                    background: location === href ? "rgba(34,193,220,0.08)" : "transparent",
+                    background: location === href ? "rgba(29,223,184,0.08)" : "transparent",
                     border: "none",
                     borderRadius: "14px",
                     padding: "18px 20px",

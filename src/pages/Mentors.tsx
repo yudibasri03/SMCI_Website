@@ -105,7 +105,7 @@ export default function Mentors() {
             <FadeIn key={mentor.name} delay={i * 0.08}>
               <motion.div
                 className="glass glass-hover"
-                style={{ borderRadius: 24, padding: "40px", position: "relative", overflow: "hidden", display: "grid", gridTemplateColumns: "auto 1fr", gap: "40px", alignItems: "start" }}
+                style={{ borderRadius: 24, padding: "clamp(24px,4vw,40px)", position: "relative", overflow: "hidden", display: "grid", gridTemplateColumns: "auto 1fr", gap: "clamp(20px,3vw,40px)", alignItems: "start" }}
                 whileHover={{ scale: 1.005 }}
                 transition={{ duration: 0.3 }}
               >
@@ -116,22 +116,22 @@ export default function Mentors() {
                   <div style={{ position: "relative" }}>
                     <div style={{
                       width: 96, height: 96, borderRadius: "50%",
-                      background: `linear-gradient(135deg, rgba(${mentor.color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.2), rgba(${mentor.color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.05))`,
-                      border: `2px solid rgba(${mentor.color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.4)`,
+                      background: `linear-gradient(135deg, rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.2), rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.05))`,
+                      border: `2px solid rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.4)`,
                       display: "flex", alignItems: "center", justifyContent: "center",
                       fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 40, color: mentor.color,
-                      boxShadow: `0 0 40px rgba(${mentor.color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.15)`,
+                      boxShadow: `0 0 40px rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.15)`,
                     }}>
                       {mentor.initial}
                     </div>
                     <div style={{ position: "absolute", bottom: 2, right: 2, width: 18, height: 18, borderRadius: "50%", background: "#22c55e", border: "2px solid var(--bg-deep)" }} />
                   </div>
                   <span style={{
-                    fontSize: "10px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase",
+                    fontSize: "12px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase",
                     padding: "5px 12px", borderRadius: 100,
                     color: mentor.color,
-                    border: `1px solid rgba(${mentor.color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.3)`,
-                    background: `rgba(${mentor.color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.08)`,
+                    border: `1px solid rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.3)`,
+                    background: `rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.08)`,
                     textAlign: "center",
                   }}>
                     {mentor.specialty}
@@ -154,7 +154,7 @@ export default function Mentors() {
 
                   {/* Expertise */}
                   <div>
-                    <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 12 }}>Keahlian</p>
+                    <p style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 12 }}>Keahlian</p>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                       {mentor.expertise.map(e => (
                         <span key={e} style={{
@@ -177,21 +177,21 @@ export default function Mentors() {
         <FadeIn delay={0.2}>
           <div style={{ marginTop: 72, textAlign: "center" }}>
             <div style={{ position: "relative", display: "inline-block", padding: "56px 48px" }}>
-              <div style={{ position: "absolute", inset: 0, borderRadius: 24, border: "1px solid rgba(34,193,220,0.12)", background: "rgba(34,193,220,0.03)" }} />
+              <div style={{ position: "absolute", inset: 0, borderRadius: 24, border: "1px solid rgba(29,223,184,0.12)", background: "rgba(29,223,184,0.03)" }} />
               <div style={{ position: "relative", zIndex: 1 }}>
                 <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem,3vw,2.5rem)", fontWeight: 800, marginBottom: 16, letterSpacing: "-0.02em" }}>
                   Siap Belajar dari<br />
                   <span className="gradient-text">Mentor Terbaik?</span>
                 </h3>
-                <p style={{ fontSize: "15px", color: "var(--text-muted)", marginBottom: 32, maxWidth: 400, margin: "0 auto 32px" }}>
-                  Pilih program mentoring yang sesuai dan mulai perjalanan trading kamu hari ini.
+                <p style={{ fontSize: "15px", color: "var(--text-muted)", marginBottom: 32, maxWidth: 420, margin: "0 auto 32px" }}>
+                  Mulai dengan 1 mentor spesifik, atau ambil paket Elite / Ultimate untuk akses lebih luas.
                 </p>
                 <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
                   <button onClick={() => navigate("/products")} className="btn-primary">
-                    Lihat Program Mentoring
+                    Pilih Per Mentor
                   </button>
-                  <button onClick={() => navigate("/contact")} className="btn-outline">
-                    Konsultasi Dulu
+                  <button onClick={() => navigate("/products")} className="btn-outline">
+                    Lihat Paket Mentoring
                   </button>
                 </div>
               </div>

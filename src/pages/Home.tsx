@@ -13,7 +13,7 @@ const highlights = [
   {
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>,
     title: "Private Mentoring",
-    desc: "Program mentoring intensif 1-on-1 dengan mentor berpengalaman. Pilih paket Elite atau Ultimate sesuai kebutuhan.",
+    desc: "Pilih paket Elite / Ultimate, atau belajar per mentor spesifik sesuai bidang yang ingin kamu kuasai.",
     color: "var(--cyan)",
     href: "/products",
   },
@@ -55,7 +55,7 @@ export default function Home() {
       {/* ── HERO ── */}
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "120px clamp(1.5rem,5vw,3.5rem) 80px", position: "relative" }}>
         {/* Hero glow */}
-        <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: 600, height: 400, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(34,193,220,0.12) 0%, transparent 70%)", filter: "blur(40px)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: 600, height: 400, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(29,223,184,0.1) 0%, transparent 70%)", filter: "blur(40px)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", zIndex: 1 }}>
           {/* Stats row */}
@@ -68,7 +68,7 @@ export default function Home() {
             {stats.map((s, i) => (
               <motion.div key={s.label} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08, duration: 0.5 }}>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 800, color: "var(--cyan)", lineHeight: 1.1 }}>{s.val}</div>
-                <div style={{ fontSize: "10px", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginTop: 4, fontWeight: 500 }}>{s.label}</div>
+                <div style={{ fontSize: "12px", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginTop: 4, fontWeight: 500 }}>{s.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -170,7 +170,7 @@ export default function Home() {
                   onClick={() => navigate(h.href)}
                 >
                   <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${h.color} 0%, transparent 100%)` }} />
-                  <div style={{ width: 48, height: 48, borderRadius: 14, background: `rgba(${h.color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.1)`, border: `1px solid rgba(${h.color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.2)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, marginBottom: 20 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: 14, background: `rgba(${h.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.1)`, border: `1px solid rgba(${h.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.2)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, marginBottom: 20 }}>
                     {h.icon}
                   </div>
                   <h3 style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, marginBottom: 12 }}>{h.title}</h3>
@@ -191,7 +191,7 @@ export default function Home() {
       {/* ── MENTOR PREVIEW ── */}
       <section style={{ padding: "96px clamp(1.5rem,5vw,3.5rem)" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 56, alignItems: "center" }}>
             <FadeIn direction="left">
               <span className="tag" style={{ marginBottom: 20, display: "inline-block" }}>Tim Mentor</span>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 800, marginBottom: 20, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
@@ -199,23 +199,33 @@ export default function Home() {
                 <span className="gradient-text">Para Ahlinya</span>
               </h2>
               <p style={{ fontSize: 15, color: "var(--text-muted)", lineHeight: 1.75, marginBottom: 32 }}>
-                4 mentor berpengalaman dengan spesialisasi berbeda, siap membimbing perjalanan trading kamu dari fundamental hingga mahir.
+                4 mentor dengan spesialisasi berbeda. Pilih paket lengkap dengan semua mentor, atau mulai dari 1 mentor spesifik sesuai kebutuhanmu.
               </p>
-              <button onClick={() => navigate("/mentors")} className="btn-primary">
-                Lihat Semua Mentor
-              </button>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <button onClick={() => navigate("/mentors")} className="btn-primary">
+                  Lihat Semua Mentor
+                </button>
+                <button onClick={() => navigate("/products")} className="btn-outline">
+                  Pilih Per Mentor
+                </button>
+              </div>
             </FadeIn>
 
             <FadeIn direction="right">
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: 14 }}>
                 {mentorPreview.map((m, i) => (
-                  <div key={m.name} className="glass glass-hover" style={{ borderRadius: 18, padding: "24px 20px", position: "relative", overflow: "hidden" }}>
+                  <div key={m.name} className="glass glass-hover" style={{ borderRadius: 18, padding: "24px 20px", position: "relative", overflow: "hidden", cursor: "pointer" }}
+                    onClick={() => navigate("/products")}>
                     <div className="card-accent-top" />
-                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, rgba(34,193,220,0.2), rgba(34,193,220,0.05))", border: "1px solid rgba(34,193,220,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, color: "var(--cyan)", marginBottom: 14 }}>
+                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, rgba(29,223,184,0.2), rgba(29,223,184,0.05))", border: "1px solid rgba(29,223,184,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, color: "var(--cyan)", marginBottom: 14 }}>
                       {m.initial}
                     </div>
                     <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 700, marginBottom: 4 }}>{m.name}</div>
-                    <div style={{ fontSize: "11px", color: "var(--text-muted)", lineHeight: 1.5 }}>{m.role}</div>
+                    <div style={{ fontSize: "12px", color: "var(--text-muted)", lineHeight: 1.5 }}>{m.role}</div>
+                    <div style={{ marginTop: 12, fontSize: "13px", color: "var(--cyan)", fontWeight: 600, display: "flex", alignItems: "center", gap: 4 }}>
+                      Pilih mentor ini
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -228,7 +238,7 @@ export default function Home() {
 
       {/* ── CTA SECTION ── */}
       <section style={{ padding: "120px clamp(1.5rem,5vw,3.5rem)", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 400, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(34,193,220,0.1) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 400, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(29,223,184,0.1) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />
         <FadeIn>
           <div style={{ maxWidth: 600, margin: "0 auto", position: "relative", zIndex: 1 }}>
             <span className="tag" style={{ marginBottom: 24, display: "inline-block" }}>Mulai Perjalanan Kamu</span>

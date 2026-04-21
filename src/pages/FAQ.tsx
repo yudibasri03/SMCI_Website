@@ -29,8 +29,12 @@ const faqs = [
     category: "Program Mentoring",
     items: [
       {
-        q: "Apa perbedaan paket Elite dan Ultimate?",
-        a: "Paket Elite mencakup sesi mentoring 1-on-1 dengan kuota tertentu, akses materi eksklusif, dan support grup. Paket Ultimate mencakup semua fitur Elite ditambah sesi tak terbatas, panduan khusus Prop Firm, analisis mendalam dari semua mentor (strategy, volume profile, psikologi, dan fundamental), serta priority support 24/7.",
+        q: "Apa perbedaan paket Elite, Ultimate, dan Per Mentor?",
+        a: "Paket Elite: belajar dengan 1 mentor pilihan, sesi 1-on-1 terjadwal, akses materi eksklusif, dan support grup. Paket Ultimate: akses semua 4 mentor sekaligus, sesi tak terbatas, panduan Prop Firm, dan priority support 24/7. Per Mentor: opsi fleksibel untuk fokus pada 1 bidang spesifik — bisa dikombinasikan dengan mentor lain sesuai kebutuhan.",
+      },
+      {
+        q: "Bagaimana cara memilih mentor yang tepat untuk saya?",
+        a: "Tergantung tujuanmu: ingin fondasi SMC → Oscar. Ingin baca pergerakan institusi → James. Punya kendala psikologi atau ingin Prop Firm → Wahyudi. Ingin integrasikan analisis berita/fundamental → Albert. Kamu juga bisa konsultasikan dulu secara gratis dengan tim kami.",
       },
       {
         q: "Berapa lama program mentoring berlangsung?",
@@ -110,18 +114,18 @@ export default function FAQ() {
           </p>
         </FadeIn>
 
-        <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: 40, alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))", gap: 40, alignItems: "start" }}>
           {/* Sidebar categories */}
           <FadeIn direction="left">
             <div style={{ position: "sticky", top: 100 }}>
-              <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 16 }}>Kategori</p>
+              <p style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 16 }}>Kategori</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                 {categories.map(cat => (
                   <button
                     key={cat}
                     onClick={() => { setActiveCategory(cat); setOpenItem(null); }}
                     style={{
-                      background: activeCategory === cat ? "rgba(34,193,220,0.1)" : "transparent",
+                      background: activeCategory === cat ? "rgba(29,223,184,0.1)" : "transparent",
                       border: "none",
                       borderRadius: 10,
                       padding: "10px 14px",
@@ -141,7 +145,7 @@ export default function FAQ() {
               </div>
 
               {/* Quick contact */}
-              <div className="glass" style={{ borderRadius: 16, padding: "24px", marginTop: 32, borderColor: "rgba(34,193,220,0.1)" }}>
+              <div className="glass" style={{ borderRadius: 16, padding: "24px", marginTop: 32, borderColor: "rgba(29,223,184,0.1)" }}>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: "14px", fontWeight: 700, marginBottom: 10 }}>Tidak menemukan jawaban?</div>
                 <p style={{ fontSize: "12px", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: 16 }}>Tim kami siap membantu menjawab pertanyaanmu.</p>
                 <button onClick={() => navigate("/contact")} className="btn-primary" style={{ padding: "10px 20px", fontSize: "12px", width: "100%", justifyContent: "center" }}>
@@ -170,14 +174,14 @@ export default function FAQ() {
                       <div
                         key={id}
                         className="glass"
-                        style={{ borderRadius: 16, overflow: "hidden", borderColor: isOpen ? "rgba(34,193,220,0.2)" : "var(--border-subtle)", transition: "border-color 0.3s" }}
+                        style={{ borderRadius: 16, overflow: "hidden", borderColor: isOpen ? "rgba(29,223,184,0.2)" : "var(--border-subtle)", transition: "border-color 0.3s" }}
                       >
                         <button
                           onClick={() => setOpenItem(isOpen ? null : id)}
                           style={{ width: "100%", padding: "20px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", background: "none", border: "none", cursor: "pointer", textAlign: "left", gap: 16 }}
                         >
                           <span style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 600, color: isOpen ? "var(--cyan)" : "#fff", transition: "color 0.2s", lineHeight: 1.4 }}>{item.q}</span>
-                          <div style={{ width: 28, height: 28, borderRadius: "50%", border: `1px solid ${isOpen ? "var(--cyan)" : "var(--border-subtle)"}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "all 0.3s", background: isOpen ? "rgba(34,193,220,0.1)" : "transparent" }}>
+                          <div style={{ width: 28, height: 28, borderRadius: "50%", border: `1px solid ${isOpen ? "var(--cyan)" : "var(--border-subtle)"}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "all 0.3s", background: isOpen ? "rgba(29,223,184,0.1)" : "transparent" }}>
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={isOpen ? "var(--cyan)" : "var(--text-muted)"} strokeWidth="2.5" style={{ transition: "transform 0.3s", transform: isOpen ? "rotate(45deg)" : "none" }}><path d="M12 5v14M5 12h14"/></svg>
                           </div>
                         </button>

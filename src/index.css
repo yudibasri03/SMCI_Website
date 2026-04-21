@@ -152,12 +152,12 @@ body {
 .tag {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--cyan);
-  padding: 4px 12px;
+  padding: 5px 14px;
   border: 1px solid rgba(29,223,184,0.35);
   border-radius: 100px;
   background: rgba(29,223,184,0.08);
@@ -260,8 +260,8 @@ body {
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-deep); }
-::-webkit-scrollbar-thumb { background: rgba(34,193,220,0.3); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(34,193,220,0.5); }
+::-webkit-scrollbar-thumb { background: rgba(29,223,184,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(29,223,184,0.5); }
 
 /* ── PARTICLE DOT (for hero) ── */
 @keyframes particlePulse {

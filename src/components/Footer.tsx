@@ -26,12 +26,12 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-              <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(34,193,220,0.1)", border: "1px solid rgba(34,193,220,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C1DC" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(29,223,184,0.1)", border: "1px solid rgba(29,223,184,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1DDFB8" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
               </div>
               <div>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 800, color: "#fff" }}>SMCI Community</div>
-                <div style={{ fontSize: "9px", letterSpacing: "0.15em", color: "var(--cyan)" }}>SMART MONEY CONCEPT INDONESIA</div>
+                <div style={{ fontSize: "11px", letterSpacing: "0.15em", color: "var(--cyan)" }}>SMART MONEY CONCEPT INDONESIA</div>
               </div>
             </div>
             <p style={{ fontSize: "13px", lineHeight: 1.7, color: "var(--text-muted)", marginBottom: 20 }}>
@@ -53,7 +53,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <p style={{ fontFamily: "var(--font-display)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", color: "var(--cyan)", marginBottom: 20, textTransform: "uppercase" }}>Navigasi</p>
+            <p style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", color: "var(--cyan)", marginBottom: 20, textTransform: "uppercase" }}>Navigasi</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {links.map(l => (
                 <button key={l.href} onClick={() => { navigate(l.href); window.scrollTo({ top: 0 }); }}
@@ -69,7 +69,7 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <p style={{ fontFamily: "var(--font-display)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", color: "var(--cyan)", marginBottom: 20, textTransform: "uppercase" }}>Produk</p>
+            <p style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", color: "var(--cyan)", marginBottom: 20, textTransform: "uppercase" }}>Produk</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {["Private Mentoring Elite", "Private Mentoring Ultimate", "SMCI All-in-One Indicator", "SMCI Simple Entry", "SMCI Ebook"].map(p => (
                 <span key={p} style={{ fontSize: "13px", color: "var(--text-muted)" }}>{p}</span>
@@ -79,7 +79,7 @@ export default function Footer() {
 
           {/* Warning */}
           <div>
-            <p style={{ fontFamily: "var(--font-display)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", color: "#F0B429", marginBottom: 16, textTransform: "uppercase" }}>⚠ Peringatan Risiko</p>
+            <p style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", color: "#F0B429", marginBottom: 16, textTransform: "uppercase" }}>⚠ Peringatan Risiko</p>
             <p style={{ fontSize: "12px", lineHeight: 1.7, color: "var(--text-muted)" }}>
               Trading forex & instrumen keuangan mengandung risiko tinggi. Pastikan Anda memahami risiko sebelum memulai. Edukasi bukan jaminan profit.
             </p>
@@ -88,10 +88,10 @@ export default function Footer() {
 
         <div className="divider" style={{ marginBottom: 24 }} />
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-          <p style={{ fontSize: "11px", color: "var(--text-subtle)" }}>
+          <p style={{ fontSize: "13px", color: "var(--text-subtle)" }}>
             &copy; {new Date().getFullYear()} SMCI Community. All rights reserved.
           </p>
-          <p style={{ fontSize: "11px", color: "var(--text-subtle)" }}>
+          <p style={{ fontSize: "13px", color: "var(--text-subtle)" }}>
             Smart Money Concept Indonesia
           </p>
         </div>

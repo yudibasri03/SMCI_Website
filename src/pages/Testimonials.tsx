@@ -5,24 +5,24 @@ import FadeIn from "../components/FadeIn";
 const testimonials = [
   {
     name: "Rizky Firmansyah",
-    role: "Peserta Private Mentoring Ultimate",
+    role: "Peserta Mentoring Per Mentor — Oscar",
     location: "Jakarta",
     initial: "R",
     color: "var(--cyan)",
     rating: 5,
-    text: "Sebelum ikut SMCI, saya sudah 2 tahun trading tanpa arah yang jelas. Setelah ikut mentoring bersama Oscar, akhirnya saya paham konsep Smart Money dan bisa konsisten profit selama 3 bulan berturut-turut. Worth it banget!",
-    product: "Mentoring Ultimate",
+    text: "Sebelum ikut SMCI, saya sudah 2 tahun trading tanpa arah yang jelas. Setelah mentoring langsung dengan Oscar, akhirnya saya paham fondasi SMC dan bisa konsisten profit selama 3 bulan berturut-turut. Worth it banget!",
+    product: "Per Mentor · Oscar (SMCI Strategy)",
     result: "+23% dalam 3 bulan",
   },
   {
     name: "Dewi Anggraini",
-    role: "Peserta Private Mentoring Elite",
+    role: "Peserta Mentoring Per Mentor — James",
     location: "Surabaya",
     initial: "D",
     color: "var(--gold)",
     rating: 5,
-    text: "James menjelaskan Volume Profile dengan sangat detail dan mudah dipahami. Saya yang awalnya hanya paham price action, sekarang bisa membaca order flow dengan lebih akurat. Program ini mengubah cara saya melihat pasar.",
-    product: "Mentoring Elite",
+    text: "James menjelaskan Volume Profile dengan sangat detail dan mudah dipahami. Saya yang awalnya hanya paham price action, sekarang bisa membaca order flow dengan lebih akurat. Saya pilih per mentor karena ingin fokus ke bidang ini dulu.",
+    product: "Per Mentor · James (Volume Profile)",
     result: "Lulus Prop Firm Challenge",
   },
   {
@@ -32,42 +32,42 @@ const testimonials = [
     initial: "B",
     color: "var(--cyan)",
     rating: 5,
-    text: "Indikator SMCI All-in-One sangat membantu saya memetakan market structure secara otomatis. Tidak perlu lagi gambar manual, semuanya sudah terdeteksi. Sinyal yang muncul sangat relevan dengan kondisi pasar.",
-    product: "All-in-One Indicator",
+    text: "Indikator SMCI All-in-One sangat membantu memetakan market structure secara otomatis. Tidak perlu gambar manual, semuanya sudah terdeteksi. Sinyal yang muncul sangat relevan dengan kondisi pasar nyata.",
+    product: "SMCI All-in-One Indicator",
     result: "Win rate meningkat 15%",
   },
   {
     name: "Sari Rahayu",
-    role: "Peserta Mentoring + Pengguna Ebook",
+    role: "Peserta Mentoring Per Mentor — Wahyudi",
     location: "Yogyakarta",
     initial: "S",
     color: "var(--gold)",
     rating: 5,
-    text: "Ebook SMCI adalah yang terbaik yang pernah saya baca dalam bahasa Indonesia. Penjelasannya sangat sistematis dari dasar hingga advanced. Ditambah mentoring Wahyudi yang fokus pada psikologi, sekarang saya jauh lebih tenang saat trading.",
-    product: "Ebook + Mentoring",
-    result: "Mindset dan profitabilitas meningkat",
+    text: "Saya pilih mentoring Wahyudi karena selalu cut loss terlambat dan overtrading. Setelah sesi psikologi bersamanya, mindset saya berubah total. Saya juga lulus Prop Firm pertama kali dengan panduan strategi dari dia.",
+    product: "Per Mentor · Wahyudi (Psikologi & Propfirm)",
+    result: "Lulus Prop Firm, mindset lebih disiplin",
   },
   {
     name: "Andi Kurniawan",
-    role: "Peserta Private Mentoring Ultimate",
+    role: "Peserta Paket Mentoring Ultimate",
     location: "Medan",
     initial: "A",
     color: "var(--cyan)",
     rating: 5,
-    text: "Sesi news trading bersama Albert benar-benar membuka wawasan saya. Selama ini saya takut trading saat news, sekarang malah jadi salah satu momen favorit karena tahu cara membaca sentimen pasar. Komunitas SMCI juga sangat suportif.",
-    product: "Mentoring Ultimate",
-    result: "Konsisten profit saat high-impact news",
+    text: "Ambil Ultimate karena mau akses semua mentor. Ternyata sinerginya luar biasa — strategy dari Oscar, volume profile dari James, psikologi dari Wahyudi, lalu Albert ajarkan cara baca news. Paket terlengkap yang pernah saya ikuti.",
+    product: "Paket Mentoring Ultimate",
+    result: "Profit konsisten multi-strategi",
   },
   {
     name: "Fitriani Nasution",
-    role: "Pengguna SMCI Simple Entry",
+    role: "Peserta Mentoring Per Mentor — Albert",
     location: "Makassar",
     initial: "F",
     color: "var(--gold)",
     rating: 5,
-    text: "SMCI Simple Entry cocok banget untuk saya yang masih belajar. Tampilannya bersih, sinyal yang muncul tidak overwhelming, dan saya bisa langsung paham cara menggunakannya. Setelah 2 bulan pakai, hasil trading saya mulai membaik.",
-    product: "Simple Entry Indicator",
-    result: "Perbaikan signifikan dalam 2 bulan",
+    text: "Dulunya saya selalu hindari trading saat news. Setelah mentoring dengan Albert, saya justru jadikan news event sebagai peluang utama. Cara Albert menjelaskan korelasi makro ke chart SMC benar-benar eye-opening.",
+    product: "Per Mentor · Albert (News & Fundamental)",
+    result: "Konsisten profit saat high-impact news",
   },
 ];
 
@@ -118,7 +118,7 @@ export default function Testimonials() {
         {/* Featured Testimonial Slider */}
         <FadeIn delay={0.15}>
           <div style={{ marginBottom: 56 }}>
-            <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 20 }}>Testimoni Unggulan</p>
+            <p style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 20 }}>Testimoni Unggulan</p>
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -127,20 +127,20 @@ export default function Testimonials() {
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="glass"
-                style={{ borderRadius: 24, padding: "48px", position: "relative", overflow: "hidden", borderColor: `rgba(${testimonials[active].color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.2)` }}
+                style={{ borderRadius: 24, padding: "48px", position: "relative", overflow: "hidden", borderColor: `rgba(${testimonials[active].color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.2)` }}
               >
                 <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${testimonials[active].color} 0%, transparent 60%)` }} />
 
                 {/* Quote mark */}
-                <div style={{ fontSize: 80, lineHeight: 1, color: `rgba(${testimonials[active].color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.12)`, fontFamily: "Georgia, serif", position: "absolute", top: 24, right: 40 }}>"</div>
+                <div style={{ fontSize: 80, lineHeight: 1, color: `rgba(${testimonials[active].color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.12)`, fontFamily: "Georgia, serif", position: "absolute", top: 24, right: 40 }}>"</div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 32, alignItems: "start" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(60px,100%), 1fr))", gap: 32, alignItems: "start" }}>
                   {/* Avatar */}
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
                     <div style={{
                       width: 72, height: 72, borderRadius: "50%",
-                      background: `linear-gradient(135deg, rgba(${testimonials[active].color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.2), transparent)`,
-                      border: `2px solid rgba(${testimonials[active].color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.35)`,
+                      background: `linear-gradient(135deg, rgba(${testimonials[active].color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.2), transparent)`,
+                      border: `2px solid rgba(${testimonials[active].color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.35)`,
                       display: "flex", alignItems: "center", justifyContent: "center",
                       fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 28, color: testimonials[active].color,
                     }}>
@@ -164,10 +164,10 @@ export default function Testimonials() {
                       "{testimonials[active].text}"
                     </p>
                     <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                      <span style={{ fontSize: "11px", padding: "5px 12px", borderRadius: 8, background: "rgba(255,255,255,0.05)", border: "1px solid var(--border-subtle)", color: "var(--text-muted)" }}>
+                      <span style={{ fontSize: "13px", padding: "5px 12px", borderRadius: 8, background: "rgba(255,255,255,0.05)", border: "1px solid var(--border-subtle)", color: "var(--text-muted)" }}>
                         📦 {testimonials[active].product}
                       </span>
-                      <span style={{ fontSize: "11px", padding: "5px 12px", borderRadius: 8, background: `rgba(${testimonials[active].color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.08)`, border: `1px solid rgba(${testimonials[active].color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.2)`, color: testimonials[active].color }}>
+                      <span style={{ fontSize: "13px", padding: "5px 12px", borderRadius: 8, background: `rgba(${testimonials[active].color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.08)`, border: `1px solid rgba(${testimonials[active].color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.2)`, color: testimonials[active].color }}>
                         ✓ {testimonials[active].result}
                       </span>
                     </div>
@@ -201,7 +201,7 @@ export default function Testimonials() {
 
         {/* Grid testimonials */}
         <FadeIn delay={0.2}>
-          <p style={{ fontFamily: "var(--font-display)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 24 }}>Semua Testimoni</p>
+          <p style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 24 }}>Semua Testimoni</p>
         </FadeIn>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 20 }}>
           {testimonials.map((t, i) => (
@@ -213,12 +213,12 @@ export default function Testimonials() {
               >
                 <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${t.color} 0%, transparent 100%)` }} />
                 <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
-                  <div style={{ width: 44, height: 44, borderRadius: "50%", background: `rgba(${t.color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.12)`, border: `1px solid rgba(${t.color === "var(--cyan)" ? "34,193,220" : "240,180,41"},0.25)`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, color: t.color, flexShrink: 0 }}>
+                  <div style={{ width: 44, height: 44, borderRadius: "50%", background: `rgba(${t.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.12)`, border: `1px solid rgba(${t.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.25)`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, color: t.color, flexShrink: 0 }}>
                     {t.initial}
                   </div>
                   <div>
                     <div style={{ fontFamily: "var(--font-display)", fontSize: "14px", fontWeight: 700 }}>{t.name}</div>
-                    <div style={{ fontSize: "11px", color: "var(--text-muted)" }}>{t.location}</div>
+                    <div style={{ fontSize: "13px", color: "var(--text-muted)" }}>{t.location}</div>
                   </div>
                   <div style={{ marginLeft: "auto", display: "flex", gap: 1 }}>
                     {Array.from({ length: 5 }).map((_, j) => (
@@ -230,8 +230,8 @@ export default function Testimonials() {
                   "{t.text}"
                 </p>
                 <div style={{ marginTop: 16, paddingTop: 14, borderTop: "1px solid var(--border-subtle)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontSize: "11px", color: "var(--text-muted)" }}>{t.product}</span>
-                  <span style={{ fontSize: "11px", color: t.color, fontWeight: 600 }}>{t.result}</span>
+                  <span style={{ fontSize: "13px", color: "var(--text-muted)" }}>{t.product}</span>
+                  <span style={{ fontSize: "13px", color: t.color, fontWeight: 600 }}>{t.result}</span>
                 </div>
               </div>
             </FadeIn>

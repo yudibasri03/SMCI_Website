@@ -279,7 +279,7 @@ export default function Products() {
                       <div style={{ width: 56, height: 56, borderRadius: 16, background: `rgba(${rgb(product.accentColor)},0.1)`, border: `1px solid rgba(${rgb(product.accentColor)},0.2)`, display: "flex", alignItems: "center", justifyContent: "center", color: product.accentColor }}>
                         {product.icon}
                       </div>
-                      <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.15em", padding: "5px 14px", borderRadius: 100, color: product.tagColor, border: `1px solid rgba(${rgb(product.tagColor)},0.35)`, background: `rgba(${rgb(product.tagColor)},0.08)` }}>
+                      <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.15em", padding: "5px 14px", borderRadius: 100, color: product.tagColor, border: `1px solid rgba(${rgb(product.tagColor)},0.35)`, background: `rgba(${rgb(product.tagColor)},0.08)` }}>
                         {product.tag}
                       </span>
                     </div>
@@ -363,7 +363,7 @@ export default function Products() {
 
                     <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 32, alignItems: "start" }}>
                       <div>
-                        <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20, flexWrap: "wrap" }}>
                           <div style={{ width: 64, height: 64, borderRadius: "50%", background: `rgba(${rgb(selected.color)},0.12)`, border: `2px solid rgba(${rgb(selected.color)},0.35)`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 28, color: selected.color }}>
                             {selected.initial}
                           </div>
@@ -375,7 +375,7 @@ export default function Products() {
 
                         <p style={{ fontSize: "15px", lineHeight: 1.8, color: "var(--text-muted)", marginBottom: 28 }}>{selected.description}</p>
 
-                        <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 16 }}>Yang akan dipelajari</p>
+                        <p style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 16 }}>Yang akan dipelajari</p>
                         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 20px", marginBottom: 28 }}>
                           {selected.topics.map(t => (
                             <div key={t} style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -428,11 +428,11 @@ export default function Products() {
                       <div style={{ width: 52, height: 52, borderRadius: 16, background: `rgba(${rgb(product.accentColor)},0.1)`, border: `1px solid rgba(${rgb(product.accentColor)},0.2)`, display: "flex", alignItems: "center", justifyContent: "center", color: product.accentColor }}>
                         {product.icon}
                       </div>
-                      <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.15em", padding: "5px 12px", borderRadius: 100, color: product.tagColor, border: `1px solid rgba(${rgb(product.tagColor)},0.3)`, background: `rgba(${rgb(product.tagColor)},0.08)` }}>
+                      <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.15em", padding: "5px 12px", borderRadius: 100, color: product.tagColor, border: `1px solid rgba(${rgb(product.tagColor)},0.3)`, background: `rgba(${rgb(product.tagColor)},0.08)` }}>
                         {product.tag}
                       </span>
                     </div>
-                    <span style={{ fontSize: "11px", color: "var(--text-muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8, fontWeight: 500 }}>{product.category}</span>
+                    <span style={{ fontSize: "13px", color: "var(--text-muted)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8, fontWeight: 500 }}>{product.category}</span>
                     <h3 style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: 800, marginBottom: 12 }}>{product.name}</h3>
                     <p style={{ fontSize: "14px", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: 22 }}>{product.description}</p>
                     <div style={{ height: 1, background: "var(--border-subtle)", marginBottom: 20 }} />
