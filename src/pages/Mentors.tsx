@@ -187,10 +187,10 @@ export default function Mentors() {
                   Mulai dengan 1 mentor spesifik, atau ambil paket Elite / Ultimate untuk akses lebih luas.
                 </p>
                 <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-                  <button onClick={() => navigate("/products")} className="btn-primary">
+                  <button onClick={() => { window.scrollTo({ top: 0 }); navigate("/products?tab=permentor"); }} className="btn-primary">
                     Pilih Per Mentor
                   </button>
-                  <button onClick={() => navigate("/products")} className="btn-outline">
+                  <button onClick={() => { window.scrollTo({ top: 0 }); navigate("/products?tab=0"); }} className="btn-outline">
                     Lihat Paket Mentoring
                   </button>
                 </div>

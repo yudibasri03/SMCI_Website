@@ -11,40 +11,48 @@ const stats = [
 
 const highlights = [
   {
-    icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>,
-    title: "Private Mentoring",
-    desc: "Pilih paket Elite / Ultimate, atau belajar per mentor spesifik sesuai bidang yang ingin kamu kuasai.",
+    icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+    title: "Paket Mentoring",
+    badge: "Elite & Ultimate",
+    desc: "Paket lengkap dengan 1 atau semua 4 mentor. Cocok untuk trader yang ingin belajar SMC secara menyeluruh.",
     color: "var(--cyan)",
     href: "/products",
+    tab: "",
+  },
+  {
+    icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    title: "Mentoring Per Mentor",
+    badge: "Pilih Spesialisasi",
+    desc: "Mulai dari 1 mentor spesifik — Oscar, James, Wahyudi, atau Albert. Fleksibel dan bisa dikombinasikan.",
+    color: "var(--gold)",
+    href: "/products?tab=permentor",
+    tab: "permentor",
   },
   {
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
     title: "Trading Indicators",
-    desc: "SMCI All-in-One dan SMCI Simple Entry — tools eksklusif untuk membantu analisis pasar dengan metode SMC.",
-    color: "var(--gold)",
-    href: "/products",
+    badge: "All-in-One & Simple Entry",
+    desc: "Indicator eksklusif SMCI untuk TradingView — bantu analisis Market Structure, Supply & Demand, dan Liquidity.",
+    color: "var(--cyan)",
+    href: "/products?tab=tools",
+    tab: "tools",
   },
   {
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>,
     title: "SMCI Ebook",
-    desc: "Panduan lengkap metode Smart Money Concept dari dasar hingga mahir. Dirancang untuk trader Indonesia.",
-    color: "var(--cyan)",
-    href: "/products",
-  },
-  {
-    icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
-    title: "Komunitas Aktif",
-    desc: "Bergabung dengan ribuan trader di komunitas Telegram & Discord. Diskusi, analisis, dan belajar bersama.",
+    badge: "PDF · Seumur Hidup",
+    desc: "Panduan lengkap SMC dalam bahasa Indonesia — dari mindset dasar hingga setup trading advanced.",
     color: "var(--gold)",
-    href: "/contact",
+    href: "/products?tab=tools",
+    tab: "tools",
   },
 ];
 
 const mentorPreview = [
-  { name: "Oscar", role: "SMCI Strategy", initial: "O" },
-  { name: "James", role: "Volume Profile & Order Flow", initial: "J" },
-  { name: "Wahyudi", role: "Psikologi & Propfirm", initial: "W" },
-  { name: "Albert", role: "News & Fundamental", initial: "A" },
+  { id: "oscar",   name: "Oscar",   role: "SMCI Strategy",              initial: "O" },
+  { id: "james",   name: "James",   role: "Volume Profile & Order Flow", initial: "J" },
+  { id: "wahyudi", name: "Wahyudi", role: "Psikologi & Propfirm",        initial: "W" },
+  { id: "albert",  name: "Albert",  role: "News & Fundamental",          initial: "A" },
 ];
 
 export default function Home() {
@@ -161,21 +169,29 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20 }}>
             {highlights.map((h, i) => (
               <FadeIn key={h.title} delay={i * 0.08}>
                 <div
                   className="glass glass-hover"
-                  style={{ borderRadius: 20, padding: "32px 28px", height: "100%", position: "relative", overflow: "hidden", cursor: "pointer" }}
-                  onClick={() => navigate(h.href)}
+                  style={{ borderRadius: 20, padding: "32px 28px", height: "100%", position: "relative", overflow: "hidden", cursor: "pointer", display: "flex", flexDirection: "column" }}
+                  onClick={() => {
+                    window.scrollTo({ top: 0 });
+                    navigate(h.href);
+                  }}
                 >
                   <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${h.color} 0%, transparent 100%)` }} />
-                  <div style={{ width: 48, height: 48, borderRadius: 14, background: `rgba(${h.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.1)`, border: `1px solid rgba(${h.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.2)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, marginBottom: 20 }}>
-                    {h.icon}
+                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 20 }}>
+                    <div style={{ width: 48, height: 48, borderRadius: 14, background: `rgba(${h.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.1)`, border: `1px solid rgba(${h.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.2)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, flexShrink: 0 }}>
+                      {h.icon}
+                    </div>
+                    <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", padding: "4px 10px", borderRadius: 100, color: h.color, border: `1px solid rgba(${h.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.3)`, background: `rgba(${h.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.07)`, whiteSpace: "nowrap" }}>
+                      {h.badge}
+                    </span>
                   </div>
-                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, marginBottom: 12 }}>{h.title}</h3>
-                  <p style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--text-muted)" }}>{h.desc}</p>
-                  <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 6, color: h.color, fontSize: "12px", fontWeight: 600, fontFamily: "var(--font-display)", letterSpacing: "0.06em" }}>
+                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, marginBottom: 10 }}>{h.title}</h3>
+                  <p style={{ fontSize: "14px", lineHeight: 1.75, color: "var(--text-muted)", flex: 1 }}>{h.desc}</p>
+                  <div style={{ marginTop: 20, display: "flex", alignItems: "center", gap: 6, color: h.color, fontSize: "13px", fontWeight: 600, fontFamily: "var(--font-display)" }}>
                     Selengkapnya
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </div>
@@ -205,7 +221,7 @@ export default function Home() {
                 <button onClick={() => navigate("/mentors")} className="btn-primary">
                   Lihat Semua Mentor
                 </button>
-                <button onClick={() => navigate("/products")} className="btn-outline">
+                <button onClick={() => { window.scrollTo({ top: 0 }); navigate("/products?tab=permentor"); }} className="btn-outline">
                   Pilih Per Mentor
                 </button>
               </div>
@@ -213,9 +229,12 @@ export default function Home() {
 
             <FadeIn direction="right">
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: 14 }}>
-                {mentorPreview.map((m, i) => (
+                {mentorPreview.map((m) => (
                   <div key={m.name} className="glass glass-hover" style={{ borderRadius: 18, padding: "24px 20px", position: "relative", overflow: "hidden", cursor: "pointer" }}
-                    onClick={() => navigate("/products")}>
+                    onClick={() => {
+                      window.scrollTo({ top: 0 });
+                      navigate(`/products?tab=permentor&mentor=${m.id}`);
+                    }}>
                     <div className="card-accent-top" />
                     <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, rgba(29,223,184,0.2), rgba(29,223,184,0.05))", border: "1px solid rgba(29,223,184,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, color: "var(--cyan)", marginBottom: 14 }}>
                       {m.initial}

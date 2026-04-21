@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useLocation } from "wouter";
+import { useState, useEffect } from "react";
+import { useLocation, useSearch } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "../components/FadeIn";
 
@@ -207,8 +207,25 @@ function rgb(color: string) { return isGold(color) ? "240,180,41" : "29,223,184"
 
 export default function Products() {
   const [, navigate] = useLocation();
-  const [activeTab, setActiveTab] = useState(0);
-  const [selectedMentor, setSelectedMentor] = useState<string | null>(null);
+  const search = useSearch();
+  const params = new URLSearchParams(search);
+
+  const initialTab = params.get("tab") === "permentor" ? 1
+    : params.get("tab") === "tools" ? 2 : 0;
+  const initialMentor = params.get("mentor") ?? null;
+
+  const [activeTab, setActiveTab] = useState(initialTab);
+  const [selectedMentor, setSelectedMentor] = useState<string | null>(initialMentor);
+
+  // Sync when URL changes (e.g. navigating from Home)
+  useEffect(() => {
+    const p = new URLSearchParams(search);
+    const t = p.get("tab") === "permentor" ? 1 : p.get("tab") === "tools" ? 2 : 0;
+    const m = p.get("mentor") ?? null;
+    setActiveTab(t);
+    setSelectedMentor(m);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [search]);
 
   const selected = mentorProducts.find((m) => m.id === selectedMentor);
 
