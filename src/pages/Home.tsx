@@ -221,20 +221,29 @@ export default function Home() {
             {highlights.map((h, i) => (
               <FadeIn key={h.title} delay={i * 0.07}>
                 <div className="glass glass-hover" onClick={() => navigate(h.href)}
-                  style={{ borderRadius: 18, padding: "24px 20px", height: "100%", position: "relative", overflow: "hidden", cursor: "pointer", display: "flex", flexDirection: "column" }}>
+                  style={{ borderRadius: 18, padding: "24px", height: "100%", position: "relative", overflow: "hidden", cursor: "pointer", display: "flex", flexDirection: "column", gap: 0 }}>
                   <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${h.color} 0%, transparent 100%)` }} />
-                  <div style={{ marginBottom: 16 }}>
-                    <span style={{ display: "inline-block", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", padding: "4px 12px", borderRadius: 100, color: h.color, border: `1px solid rgba(${rgb(h.color)},0.35)`, background: `rgba(${rgb(h.color)},0.1)`, whiteSpace: "nowrap" }}>
+
+                  {/* Icon + badge row — sejajar horizontal */}
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
+                    <div style={{ width: 44, height: 44, borderRadius: 12, background: `rgba(${rgb(h.color)},0.12)`, border: `1px solid rgba(${rgb(h.color)},0.22)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, flexShrink: 0 }}>
+                      {h.icon}
+                    </div>
+                    <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", padding: "4px 11px", borderRadius: 100, color: h.color, border: `1px solid rgba(${rgb(h.color)},0.32)`, background: `rgba(${rgb(h.color)},0.09)` }}>
                       {h.badge}
                     </span>
                   </div>
-                  <div style={{ width: 44, height: 44, borderRadius: 12, background: `rgba(${rgb(h.color)},0.12)`, border: `1px solid rgba(${rgb(h.color)},0.22)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, marginBottom: 16 }}>
-                    {h.icon}
-                  </div>
-                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: 700, marginBottom: 8 }}>{h.title}</h3>
+
+                  {/* Title */}
+                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: 700, marginBottom: 10, lineHeight: 1.3 }}>{h.title}</h3>
+
+                  {/* Desc */}
                   <p style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--text-muted)", flex: 1 }}>{h.desc}</p>
-                  <div style={{ marginTop: 18, display: "flex", alignItems: "center", gap: 5, color: h.color, fontSize: "13px", fontWeight: 600, fontFamily: "var(--font-display)" }}>
-                    Selengkapnya <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+
+                  {/* Link */}
+                  <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", gap: 5, color: h.color, fontSize: "13px", fontWeight: 600, fontFamily: "var(--font-display)" }}>
+                    Selengkapnya
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </div>
                 </div>
               </FadeIn>
