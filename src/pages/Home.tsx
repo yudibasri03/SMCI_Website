@@ -277,7 +277,7 @@ export default function Home() {
                   <img
                     src={`/${m.name}.png`}
                     alt={m.name}
-                    style={{ width: 120, height: 120, minWidth: 120, minHeight: 120, objectFit: "contain", marginBottom: 16, display: "block", flexShrink: 0, filter: 'none' }}
+                    style={{ width: "100%", maxWidth: 160, height: 160, objectFit: "contain", marginBottom: 12, display: "block" }}
                   />
 
                   <div style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, marginBottom: 6 }}>{m.name}</div>

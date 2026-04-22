@@ -60,7 +60,7 @@ export default function Mentors() {
                     <img
                       src={`/${mentor.name}.png`}
                       alt={mentor.name}
-                      style={{ width: 110, height: 110, minWidth: 110, minHeight: 110, objectFit: "contain", display: "block", flexShrink: 0, filter: 'none' }}
+                      style={{ width: 130, height: 130, objectFit: "contain", display: "block", flexShrink: 0 }}
                     />
                     <div style={{ position: "absolute", bottom: 2, right: 2, width: 14, height: 14, borderRadius: "50%", background: "#22c55e", border: "2px solid rgba(10,20,45,0.8)" }} />
                   </div>
