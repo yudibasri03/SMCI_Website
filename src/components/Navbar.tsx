@@ -51,7 +51,7 @@ export default function Navbar() {
         {/* Inner container — same padding as hero content, no maxWidth so left edge is identical */}
         <div style={{ width: "100%", padding: "0 clamp(1.25rem,4vw,2.5rem)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
-        <button onClick={() => handleNav("/")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", padding: 0 }}>
+        <button onClick={() => handleNav("/")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", padding: 0, marginLeft: "clamp(0.5rem,2vw,2rem)" }}>
           <img
             src="/logo-smci.png"
             alt="SMCI Community"
