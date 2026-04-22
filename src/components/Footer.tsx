@@ -25,14 +25,17 @@ export default function Footer() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(200px,100%), 1fr))", gap: "clamp(28px,4vw,48px)", marginBottom: "48px" }}>
           {/* Brand */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-              <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(0,201,177,0.1)", border: "1px solid rgba(0,201,177,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C9B1" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-              </div>
-              <div>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 800, color: "#fff" }}>SMCI Community</div>
-                <div style={{ fontSize: "11px", letterSpacing: "0.15em", color: "var(--cyan)" }}>SMART MONEY CONCEPT INDONESIA</div>
-              </div>
+            <div style={{ marginBottom: 16 }}>
+              <img
+                src="/logo-smci.png"
+                alt="SMCI Community"
+                style={{
+                  height: 38,
+                  width: "auto",
+                  objectFit: "contain",
+                  filter: "drop-shadow(0 0 8px rgba(0,201,177,0.5)) drop-shadow(0 0 20px rgba(0,201,177,0.25)) brightness(1.1)",
+                }}
+              />
             </div>
             <p style={{ fontSize: "13px", lineHeight: 1.7, color: "var(--text-muted)", marginBottom: 20 }}>
               Komunitas trading SMC terpercaya di Indonesia. Belajar, berkembang, dan profit bersama.

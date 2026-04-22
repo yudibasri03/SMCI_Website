@@ -50,14 +50,17 @@ export default function Navbar() {
         transition: "all 0.35s ease",
       }}>
         {/* Logo */}
-        <button onClick={() => handleNav("/")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "11px", padding: 0 }}>
-          <div style={{ width: 36, height: 36, borderRadius: "10px", background: "rgba(0,201,177,0.15)", border: "1px solid rgba(0,201,177,0.35)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C9B1" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          </div>
-          <div style={{ textAlign: "left" }}>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 800, color: "#fff", lineHeight: 1.1 }}>SMCI</div>
-            <div style={{ fontSize: "10px", letterSpacing: "0.18em", color: "var(--cyan)", fontWeight: 600 }}>COMMUNITY</div>
-          </div>
+        <button onClick={() => handleNav("/")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", padding: 0 }}>
+          <img
+            src="/logo-smci.png"
+            alt="SMCI Community"
+            style={{
+              height: 44,
+              width: "auto",
+              objectFit: "contain",
+              filter: "drop-shadow(0 0 10px rgba(0,201,177,0.6)) drop-shadow(0 0 24px rgba(0,201,177,0.3)) brightness(1.15)",
+            }}
+          />
         </button>
 
         {/* Desktop nav */}
