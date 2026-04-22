@@ -221,27 +221,28 @@ export default function Home() {
             {highlights.map((h, i) => (
               <FadeIn key={h.title} delay={i * 0.07}>
                 <div className="glass glass-hover" onClick={() => navigate(h.href)}
-                  style={{ borderRadius: 18, padding: "24px", height: "100%", position: "relative", overflow: "hidden", cursor: "pointer", display: "flex", flexDirection: "column", gap: 0 }}>
+                  style={{ borderRadius: 18, padding: "22px 20px", height: "100%", position: "relative", overflow: "hidden", cursor: "pointer", display: "flex", flexDirection: "column" }}>
                   <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${h.color} 0%, transparent 100%)` }} />
 
-                  {/* Icon + badge row — sejajar horizontal */}
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
-                    <div style={{ width: 44, height: 44, borderRadius: 12, background: `rgba(${rgb(h.color)},0.12)`, border: `1px solid rgba(${rgb(h.color)},0.22)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, flexShrink: 0 }}>
+                  {/* Icon + Text side by side */}
+                  <div style={{ display: "flex", gap: 16, alignItems: "flex-start", flex: 1 }}>
+                    {/* Icon — fixed size, never shrinks */}
+                    <div style={{ width: 46, height: 46, borderRadius: 12, background: `rgba(${rgb(h.color)},0.12)`, border: `1px solid rgba(${rgb(h.color)},0.22)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, flexShrink: 0 }}>
                       {h.icon}
                     </div>
-                    <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", padding: "4px 11px", borderRadius: 100, color: h.color, border: `1px solid rgba(${rgb(h.color)},0.32)`, background: `rgba(${rgb(h.color)},0.09)` }}>
-                      {h.badge}
-                    </span>
+
+                    {/* Text block */}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <span style={{ display: "inline-block", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", padding: "3px 10px", borderRadius: 100, color: h.color, border: `1px solid rgba(${rgb(h.color)},0.32)`, background: `rgba(${rgb(h.color)},0.09)`, marginBottom: 8 }}>
+                        {h.badge}
+                      </span>
+                      <h3 style={{ fontFamily: "var(--font-display)", fontSize: "16px", fontWeight: 700, marginBottom: 6, lineHeight: 1.3 }}>{h.title}</h3>
+                      <p style={{ fontSize: "13px", lineHeight: 1.65, color: "var(--text-muted)" }}>{h.desc}</p>
+                    </div>
                   </div>
 
-                  {/* Title */}
-                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: 700, marginBottom: 10, lineHeight: 1.3 }}>{h.title}</h3>
-
-                  {/* Desc */}
-                  <p style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--text-muted)", flex: 1 }}>{h.desc}</p>
-
-                  {/* Link */}
-                  <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", gap: 5, color: h.color, fontSize: "13px", fontWeight: 600, fontFamily: "var(--font-display)" }}>
+                  {/* Link at bottom */}
+                  <div style={{ marginTop: 16, paddingTop: 14, borderTop: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", gap: 5, color: h.color, fontSize: "13px", fontWeight: 600, fontFamily: "var(--font-display)" }}>
                     Selengkapnya
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </div>
