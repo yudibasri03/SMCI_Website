@@ -177,8 +177,8 @@ export default function Products() {
                 Pilih mentor sesuai bidang yang ingin kamu dalami. Bisa mulai dari satu, atau kombinasikan beberapa.
               </p>
 
-              {/* Mentor grid */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(220px,calc(50% - 6px)), 1fr))", gap: 12, marginBottom: 24 }}>
+              {/* Mentor grid — same style as Home mentor cards */}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 24 }}>
                 {mentorProducts.map((m, i) => (
                   <motion.button key={m.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06, duration: 0.4 }}
                     onClick={() => {
@@ -191,21 +191,27 @@ export default function Products() {
                         }, 150);
                       }
                     }}
-                    style={{ background: selectedMentor === m.id ? `rgba(${rgb(m.color)},0.12)` : "rgba(255,255,255,0.07)", border: `1.5px solid ${selectedMentor === m.id ? m.color : "rgba(255,255,255,0.12)"}`, borderRadius: 16, padding: "18px 16px", cursor: "pointer", textAlign: "left", transition: "all 0.22s", position: "relative", overflow: "hidden" }}>
+                    style={{ background: selectedMentor === m.id ? `rgba(${rgb(m.color)},0.12)` : "rgba(255,255,255,0.07)", border: `1.5px solid ${selectedMentor === m.id ? m.color : "rgba(255,255,255,0.12)"}`, borderRadius: 18, padding: "24px 20px", cursor: "pointer", textAlign: "left", transition: "all 0.22s", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
                     {selectedMentor === m.id && <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${m.color} 0%, transparent 100%)` }} />}
-                    <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
-                      <img src={`/${m.name}.png`} alt={m.name} style={{ width: 64, height: 64, objectFit: "contain", flexShrink: 0, filter: 'none' }} />
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 700, color: "#fff" }}>{m.name}</div>
-                        <div style={{ fontSize: "11px", color: m.color, fontWeight: 600, marginTop: 1 }}>{m.specialty}</div>
-                      </div>
-                      {selectedMentor === m.id && (
-                        <div style={{ width: 20, height: 20, borderRadius: "50%", background: m.color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#003D38" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
+
+                    {/* Photo */}
+                    <img src={`/${m.name}.png`} alt={m.name}
+                      style={{ width: "100%", maxWidth: 150, height: 150, objectFit: "contain", marginBottom: 12, display: "block" }} />
+
+                    {/* Name + role */}
+                    <div style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: 700, color: "#fff", marginBottom: 4 }}>{m.name}</div>
+                    <div style={{ fontSize: "12px", color: m.color, fontWeight: 600, marginBottom: 8 }}>{m.role}</div>
+                    <p style={{ fontSize: "12px", color: "var(--text-muted)", lineHeight: 1.6, flex: 1 }}>{m.specialty}</p>
+
+                    {/* Selected indicator */}
+                    {selectedMentor === m.id && (
+                      <div style={{ marginTop: 14, display: "flex", alignItems: "center", gap: 6, color: m.color, fontSize: "12px", fontWeight: 700 }}>
+                        <div style={{ width: 16, height: 16, borderRadius: "50%", background: m.color, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#003D38" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
                         </div>
-                      )}
-                    </div>
-                    <p style={{ fontSize: "12px", color: "var(--text-muted)", lineHeight: 1.5 }}>{m.role}</p>
+                        Dipilih
+                      </div>
+                    )}
                   </motion.button>
                 ))}
               </div>
