@@ -72,15 +72,16 @@ export default function Home() {
   return (
     <div>
       {/* ── HERO ── */}
-      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(1.25rem,5vw,3.5rem) 0", position: "relative", overflow: "hidden" }}>
+      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(1.25rem,5vw,3.5rem) 64px", position: "relative", overflow: "hidden" }}>
 
-        {/* Aurora layers — inside hero only */}
+        {/* Aurora wave ribbons — inside hero only */}
         <div className="aurora-canvas">
-          <div className="aurora-layer aurora-1" />
-          <div className="aurora-layer aurora-2" />
-          <div className="aurora-layer aurora-3" />
-          <div className="aurora-layer aurora-4" />
-          <div className="aurora-layer aurora-5" />
+          <div className="aurora-dark aurora-d1" />
+          <div className="aurora-dark aurora-d2" />
+          <div className="aurora-wave aurora-w3" />
+          <div className="aurora-wave aurora-w2" />
+          <div className="aurora-wave aurora-w1" />
+          <div className="aurora-wave aurora-w4" />
         </div>
 
         <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", zIndex: 1 }}>
@@ -117,30 +118,36 @@ export default function Home() {
 
           {/* CTA buttons */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.6 }}
-            style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 64 }}>
+            style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 56 }}>
             <button onClick={() => navigate("/products")} className="btn-primary">
               Lihat Produk
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
             <button onClick={() => navigate("/mentors")} className="btn-outline">Kenali Mentor</button>
           </motion.div>
-        </div>
 
-        {/* ── TICKER PILLS — full width, outside maxWidth ── */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.0, duration: 0.8 }}
-          style={{ position: "absolute", bottom: 0, left: 0, right: 0, paddingBottom: 36, zIndex: 1 }}>
-          <div className="ticker-wrapper">
-            <div className="ticker-track">
-              {/* Render twice for seamless loop */}
-              {[...tickerItems, ...tickerItems].map((item, i) => (
-                <div key={i} className="ticker-item">
-                  <span style={{ fontSize: 16 }}>{item.icon}</span>
-                  <span style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.75)" }}>{item.label}</span>
-                </div>
-              ))}
+          {/* ── TICKER — constrained to content width ── */}
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.85, duration: 0.8 }}>
+            {/* Label */}
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: 14, opacity: 0.6 }}>
+              Yang kami ajarkan
             </div>
-          </div>
-        </motion.div>
+            {/* Ticker strip */}
+            <div className="ticker-wrapper" style={{ borderRadius: 16, border: "1px solid rgba(255,255,255,0.09)", background: "rgba(255,255,255,0.04)", padding: "2px 0" }}>
+              <div className="ticker-track">
+                {[...tickerItems, ...tickerItems].map((item, i) => (
+                  <div key={i} className="ticker-item">
+                    <span style={{ fontSize: 15 }}>{item.icon}</span>
+                    <span style={{ fontSize: "13px", fontWeight: 600, color: "rgba(255,255,255,0.72)" }}>{item.label}</span>
+                    {/* Dot separator */}
+                    <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(0,201,177,0.45)", display: "inline-block", marginLeft: 8, flexShrink: 0 }} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
 
       </section>
 
@@ -157,22 +164,38 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px,100%), 1fr))", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(240px,100%), 1fr))", gap: 16 }}>
             {highlights.map((h, i) => (
               <FadeIn key={h.title} delay={i * 0.07}>
                 <div className="glass glass-hover" onClick={() => navigate(h.href)}
-                  style={{ borderRadius: 18, padding: "26px 22px", height: "100%", position: "relative", overflow: "hidden", cursor: "pointer", display: "flex", flexDirection: "column" }}>
+                  style={{ borderRadius: 18, padding: "24px 20px", height: "100%", position: "relative", overflow: "hidden", cursor: "pointer", display: "flex", flexDirection: "column" }}>
                   <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${h.color} 0%, transparent 100%)` }} />
-                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 18 }}>
-                    <div style={{ width: 44, height: 44, borderRadius: 12, background: `rgba(${rgb(h.color)},0.12)`, border: `1px solid rgba(${rgb(h.color)},0.22)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, flexShrink: 0 }}>
-                      {h.icon}
-                    </div>
-                    <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", padding: "3px 10px", borderRadius: 100, color: h.color, border: `1px solid rgba(${rgb(h.color)},0.35)`, background: `rgba(${rgb(h.color)},0.1)`, whiteSpace: "nowrap", marginLeft: 8 }}>
+
+                  {/* Badge — full width row on top */}
+                  <div style={{ marginBottom: 16 }}>
+                    <span style={{
+                      display: "inline-block",
+                      fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em",
+                      padding: "4px 12px", borderRadius: 100,
+                      color: h.color,
+                      border: `1px solid rgba(${rgb(h.color)},0.35)`,
+                      background: `rgba(${rgb(h.color)},0.1)`,
+                      whiteSpace: "nowrap",
+                    }}>
                       {h.badge}
                     </span>
                   </div>
+
+                  {/* Icon */}
+                  <div style={{ width: 44, height: 44, borderRadius: 12, background: `rgba(${rgb(h.color)},0.12)`, border: `1px solid rgba(${rgb(h.color)},0.22)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, marginBottom: 16 }}>
+                    {h.icon}
+                  </div>
+
+                  {/* Title + desc */}
                   <h3 style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: 700, marginBottom: 8 }}>{h.title}</h3>
                   <p style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--text-muted)", flex: 1 }}>{h.desc}</p>
+
+                  {/* Link */}
                   <div style={{ marginTop: 18, display: "flex", alignItems: "center", gap: 5, color: h.color, fontSize: "13px", fontWeight: 600, fontFamily: "var(--font-display)" }}>
                     Selengkapnya <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </div>
