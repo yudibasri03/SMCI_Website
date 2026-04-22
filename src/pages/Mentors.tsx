@@ -116,11 +116,11 @@ export default function Mentors() {
                   <div style={{ position: "relative" }}>
                     <div style={{
                       width: 96, height: 96, borderRadius: "50%",
-                      background: `linear-gradient(135deg, rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.2), rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.05))`,
-                      border: `2px solid rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.4)`,
+                      background: `linear-gradient(135deg, rgba(${mentor.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.2), rgba(${mentor.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.05))`,
+                      border: `2px solid rgba(${mentor.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.4)`,
                       display: "flex", alignItems: "center", justifyContent: "center",
                       fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 40, color: mentor.color,
-                      boxShadow: `0 0 40px rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.15)`,
+                      boxShadow: `0 0 40px rgba(${mentor.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.15)`,
                     }}>
                       {mentor.initial}
                     </div>
@@ -130,8 +130,8 @@ export default function Mentors() {
                     fontSize: "12px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase",
                     padding: "5px 12px", borderRadius: 100,
                     color: mentor.color,
-                    border: `1px solid rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.3)`,
-                    background: `rgba(${mentor.color === "var(--cyan)" ? "29,223,184" : "240,180,41"},0.08)`,
+                    border: `1px solid rgba(${mentor.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.3)`,
+                    background: `rgba(${mentor.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.08)`,
                     textAlign: "center",
                   }}>
                     {mentor.specialty}
@@ -177,7 +177,7 @@ export default function Mentors() {
         <FadeIn delay={0.2}>
           <div style={{ marginTop: 72, textAlign: "center" }}>
             <div style={{ position: "relative", display: "inline-block", padding: "56px 48px" }}>
-              <div style={{ position: "absolute", inset: 0, borderRadius: 24, border: "1px solid rgba(29,223,184,0.12)", background: "rgba(29,223,184,0.03)" }} />
+              <div style={{ position: "absolute", inset: 0, borderRadius: 24, border: "1px solid rgba(45,218,180,0.12)", background: "rgba(45,218,180,0.03)" }} />
               <div style={{ position: "relative", zIndex: 1 }}>
                 <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem,3vw,2.5rem)", fontWeight: 800, marginBottom: 16, letterSpacing: "-0.02em" }}>
                   Siap Belajar dari<br />

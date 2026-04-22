@@ -122,7 +122,7 @@ export default function Contact() {
               </div>
 
               {/* Office hours */}
-              <div className="glass" style={{ borderRadius: 18, padding: "28px", borderColor: "rgba(29,223,184,0.1)" }}>
+              <div className="glass" style={{ borderRadius: 18, padding: "28px", borderColor: "rgba(45,218,180,0.1)" }}>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: "13px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cyan)", marginBottom: 16 }}>Jam Operasional</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   {[
@@ -142,12 +142,12 @@ export default function Contact() {
 
           {/* Right: Form */}
           <FadeIn direction="right">
-            <div className="glass" style={{ borderRadius: 24, padding: "40px", position: "relative", overflow: "hidden", borderColor: "rgba(29,223,184,0.12)" }}>
+            <div className="glass" style={{ borderRadius: 24, padding: "40px", position: "relative", overflow: "hidden", borderColor: "rgba(45,218,180,0.12)" }}>
               <div className="card-accent-top" />
 
               {sent ? (
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: "center", padding: "48px 24px" }}>
-                  <div style={{ width: 72, height: 72, borderRadius: "50%", background: "rgba(29,223,184,0.1)", border: "1px solid rgba(29,223,184,0.3)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
+                  <div style={{ width: 72, height: 72, borderRadius: "50%", background: "rgba(45,218,180,0.1)", border: "1px solid rgba(45,218,180,0.3)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
                   <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 800, marginBottom: 12 }}>Pesan Terkirim!</h3>
@@ -195,7 +195,7 @@ export default function Contact() {
                       <select
                         value={form.interest}
                         onChange={e => setForm(f => ({ ...f, interest: e.target.value }))}
-                        style={{ width: "100%", padding: "13px 16px", borderRadius: 12, background: "rgba(8,20,40,0.9)", border: "1px solid rgba(255,255,255,0.08)", color: form.interest ? "#fff" : "var(--text-muted)", fontSize: "14px", outline: "none", transition: "border-color 0.2s", fontFamily: "var(--font-body)", cursor: "pointer" }}
+                        style={{ width: "100%", padding: "13px 16px", borderRadius: 12, background: "rgba(8,65,80,0.92)", border: "1px solid rgba(255,255,255,0.08)", color: form.interest ? "#fff" : "var(--text-muted)", fontSize: "14px", outline: "none", transition: "border-color 0.2s", fontFamily: "var(--font-body)", cursor: "pointer" }}
                         onFocus={e => (e.target.style.borderColor = "var(--cyan)")}
                         onBlur={e => (e.target.style.borderColor = "rgba(255,255,255,0.08)")}
                       >

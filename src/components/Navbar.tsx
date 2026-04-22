@@ -41,9 +41,9 @@ export default function Navbar() {
           padding: "0 clamp(1.5rem, 5vw, 3.5rem)",
           height: "72px",
           display: "flex", alignItems: "center", justifyContent: "space-between",
-          background: scrolled ? "rgba(6,42,53,0.95)" : "transparent",
+          background: scrolled ? "rgba(10,75,88,0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(24px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(29,223,184,0.1)" : "1px solid transparent",
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.12)" : "1px solid transparent",
           transition: "all 0.4s ease",
         }}
       >
@@ -51,11 +51,11 @@ export default function Navbar() {
         <button onClick={() => handleNav("/")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{
             width: 38, height: 38, borderRadius: "10px",
-            background: "linear-gradient(135deg, rgba(29,223,184,0.2) 0%, rgba(29,223,184,0.05) 100%)",
-            border: "1px solid rgba(29,223,184,0.3)",
+            background: "linear-gradient(135deg, rgba(45,218,180,0.2) 0%, rgba(45,218,180,0.05) 100%)",
+            border: "1px solid rgba(45,218,180,0.3)",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1DDFB8" strokeWidth="2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2DDAB4" strokeWidth="2">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           </div>
@@ -74,7 +74,7 @@ export default function Navbar() {
                 key={href}
                 onClick={() => handleNav(href)}
                 style={{
-                  background: active ? "rgba(29,223,184,0.1)" : "transparent",
+                  background: active ? "rgba(45,218,180,0.1)" : "transparent",
                   border: "none",
                   borderRadius: "8px",
                   padding: "8px 16px",
@@ -102,8 +102,8 @@ export default function Navbar() {
         <button
           onClick={() => setMenuOpen(p => !p)}
           style={{
-            background: menuOpen ? "rgba(29,223,184,0.12)" : "rgba(255,255,255,0.05)",
-            border: `1px solid ${menuOpen ? "rgba(29,223,184,0.3)" : "rgba(255,255,255,0.08)"}`,
+            background: menuOpen ? "rgba(45,218,180,0.12)" : "rgba(255,255,255,0.05)",
+            border: `1px solid ${menuOpen ? "rgba(45,218,180,0.3)" : "rgba(255,255,255,0.08)"}`,
             borderRadius: "10px", width: 40, height: 40,
             display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 5,
             cursor: "pointer", transition: "all 0.2s",
@@ -127,7 +127,7 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             style={{
               position: "fixed", inset: 0, zIndex: 40,
-              background: "rgba(6,42,53,0.98)",
+              background: "rgba(10,80,95,0.98)",
               backdropFilter: "blur(24px)",
               paddingTop: "72px",
               display: "flex", flexDirection: "column",
@@ -143,7 +143,7 @@ export default function Navbar() {
                   transition={{ delay: i * 0.05 }}
                   onClick={() => handleNav(href)}
                   style={{
-                    background: location === href ? "rgba(29,223,184,0.08)" : "transparent",
+                    background: location === href ? "rgba(45,218,180,0.08)" : "transparent",
                     border: "none",
                     borderRadius: "14px",
                     padding: "18px 20px",
