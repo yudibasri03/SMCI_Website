@@ -127,20 +127,20 @@ export default function Testimonials() {
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className="glass"
-                style={{ borderRadius: 24, padding: "48px", position: "relative", overflow: "hidden", borderColor: `rgba(${testimonials[active].color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.2)` }}
+                style={{ borderRadius: 24, padding: "48px", position: "relative", overflow: "hidden", borderColor: `rgba(${testimonials[active].color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.2)` }}
               >
                 <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${testimonials[active].color} 0%, transparent 60%)` }} />
 
                 {/* Quote mark */}
-                <div style={{ fontSize: 80, lineHeight: 1, color: `rgba(${testimonials[active].color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.12)`, fontFamily: "Georgia, serif", position: "absolute", top: 24, right: 40 }}>"</div>
+                <div style={{ fontSize: 80, lineHeight: 1, color: `rgba(${testimonials[active].color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.12)`, fontFamily: "Georgia, serif", position: "absolute", top: 24, right: 40 }}>"</div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(60px,100%), 1fr))", gap: 32, alignItems: "start" }}>
                   {/* Avatar */}
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
                     <div style={{
                       width: 72, height: 72, borderRadius: "50%",
-                      background: `linear-gradient(135deg, rgba(${testimonials[active].color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.2), transparent)`,
-                      border: `2px solid rgba(${testimonials[active].color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.35)`,
+                      background: `linear-gradient(135deg, rgba(${testimonials[active].color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.2), transparent)`,
+                      border: `2px solid rgba(${testimonials[active].color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.35)`,
                       display: "flex", alignItems: "center", justifyContent: "center",
                       fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 28, color: testimonials[active].color,
                     }}>
@@ -167,7 +167,7 @@ export default function Testimonials() {
                       <span style={{ fontSize: "13px", padding: "5px 12px", borderRadius: 8, background: "rgba(255,255,255,0.05)", border: "1px solid var(--border-subtle)", color: "var(--text-muted)" }}>
                         📦 {testimonials[active].product}
                       </span>
-                      <span style={{ fontSize: "13px", padding: "5px 12px", borderRadius: 8, background: `rgba(${testimonials[active].color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.08)`, border: `1px solid rgba(${testimonials[active].color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.2)`, color: testimonials[active].color }}>
+                      <span style={{ fontSize: "13px", padding: "5px 12px", borderRadius: 8, background: `rgba(${testimonials[active].color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.08)`, border: `1px solid rgba(${testimonials[active].color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.2)`, color: testimonials[active].color }}>
                         ✓ {testimonials[active].result}
                       </span>
                     </div>
@@ -213,7 +213,7 @@ export default function Testimonials() {
               >
                 <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${t.color} 0%, transparent 100%)` }} />
                 <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
-                  <div style={{ width: 44, height: 44, borderRadius: "50%", background: `rgba(${t.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.12)`, border: `1px solid rgba(${t.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.25)`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, color: t.color, flexShrink: 0 }}>
+                  <div style={{ width: 44, height: 44, borderRadius: "50%", background: `rgba(${t.color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.12)`, border: `1px solid rgba(${t.color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.25)`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, color: t.color, flexShrink: 0 }}>
                     {t.initial}
                   </div>
                   <div>

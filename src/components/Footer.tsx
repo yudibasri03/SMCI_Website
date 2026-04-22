@@ -20,14 +20,14 @@ export default function Footer() {
   const [, navigate] = useLocation();
 
   return (
-    <footer style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.12)", background: "rgba(5,50,62,0.75)", padding: "64px clamp(1.5rem,5vw,3.5rem) 32px" }}>
+    <footer style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.12)", background: "rgba(8,18,40,0.80)", padding: "64px clamp(1.5rem,5vw,3.5rem) 32px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "48px", marginBottom: "48px" }}>
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-              <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(45,218,180,0.1)", border: "1px solid rgba(45,218,180,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2DDAB4" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(0,201,177,0.1)", border: "1px solid rgba(0,201,177,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C9B1" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
               </div>
               <div>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 800, color: "#fff" }}>SMCI Community</div>

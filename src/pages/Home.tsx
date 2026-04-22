@@ -63,7 +63,7 @@ export default function Home() {
       {/* ── HERO ── */}
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "120px clamp(1.5rem,5vw,3.5rem) 80px", position: "relative" }}>
         {/* Hero glow */}
-        <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: 600, height: 400, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(45,218,180,0.1) 0%, transparent 70%)", filter: "blur(40px)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: 600, height: 400, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(0,201,177,0.1) 0%, transparent 70%)", filter: "blur(40px)", pointerEvents: "none" }} />
 
         <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", zIndex: 1 }}>
           {/* Stats row */}
@@ -182,10 +182,10 @@ export default function Home() {
                 >
                   <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${h.color} 0%, transparent 100%)` }} />
                   <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 20 }}>
-                    <div style={{ width: 48, height: 48, borderRadius: 14, background: `rgba(${h.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.1)`, border: `1px solid rgba(${h.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.2)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, flexShrink: 0 }}>
+                    <div style={{ width: 48, height: 48, borderRadius: 14, background: `rgba(${h.color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.1)`, border: `1px solid rgba(${h.color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.2)`, display: "flex", alignItems: "center", justifyContent: "center", color: h.color, flexShrink: 0 }}>
                       {h.icon}
                     </div>
-                    <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", padding: "4px 10px", borderRadius: 100, color: h.color, border: `1px solid rgba(${h.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.3)`, background: `rgba(${h.color === "var(--cyan)" ? "45,218,180" : "240,180,41"},0.07)`, whiteSpace: "nowrap" }}>
+                    <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", padding: "4px 10px", borderRadius: 100, color: h.color, border: `1px solid rgba(${h.color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.3)`, background: `rgba(${h.color === "var(--cyan)" ? "0,201,177" : "240,180,41"},0.07)`, whiteSpace: "nowrap" }}>
                       {h.badge}
                     </span>
                   </div>
@@ -235,7 +235,7 @@ export default function Home() {
                       navigate(`/products?tab=permentor&mentor=${m.id}`);
                     }}>
                     <div className="card-accent-top" />
-                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, rgba(45,218,180,0.2), rgba(45,218,180,0.05))", border: "1px solid rgba(45,218,180,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, color: "var(--cyan)", marginBottom: 14 }}>
+                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, rgba(0,201,177,0.2), rgba(0,201,177,0.05))", border: "1px solid rgba(0,201,177,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, color: "var(--cyan)", marginBottom: 14 }}>
                       {m.initial}
                     </div>
                     <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 700, marginBottom: 4 }}>{m.name}</div>
@@ -256,7 +256,7 @@ export default function Home() {
 
       {/* ── CTA SECTION ── */}
       <section style={{ padding: "120px clamp(1.5rem,5vw,3.5rem)", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 400, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(45,218,180,0.1) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 400, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(0,201,177,0.1) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />
         <FadeIn>
           <div style={{ maxWidth: 600, margin: "0 auto", position: "relative", zIndex: 1 }}>
             <span className="tag" style={{ marginBottom: 24, display: "inline-block" }}>Mulai Perjalanan Kamu</span>

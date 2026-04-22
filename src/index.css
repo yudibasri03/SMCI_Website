@@ -6,16 +6,17 @@
 }
 
 :root {
-  --cyan:      #2DDAB4;
-  --cyan-dim:  rgba(45, 218, 180, 0.18);
-  --cyan-glow: rgba(45, 218, 180, 0.40);
-  --gold:      #F5C842;
-  --gold-dim:  rgba(245, 200, 66, 0.18);
-  --text-primary: #FFFFFF;
-  --text-muted:   rgba(255,255,255,0.65);
-  --text-subtle:  rgba(255,255,255,0.38);
-  --border-subtle: rgba(255,255,255,0.13);
-  --border-cyan:   rgba(45,218,180,0.38);
+  --cyan:           #00C9B1;
+  --cyan-bright:    #1ADFC4;
+  --cyan-dim:       rgba(0, 201, 177, 0.18);
+  --cyan-glow:      rgba(0, 201, 177, 0.40);
+  --gold:           #F5C842;
+  --gold-dim:       rgba(245, 200, 66, 0.18);
+  --text-primary:   #FFFFFF;
+  --text-muted:     rgba(255,255,255,0.62);
+  --text-subtle:    rgba(255,255,255,0.35);
+  --border-subtle:  rgba(255,255,255,0.12);
+  --border-cyan:    rgba(0,201,177,0.38);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,11 +27,24 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.7;
+  /*
+   * Matches SMCI IG post exactly:
+   * Top-left  → deep navy blue  (#0A1628)
+   * Top-right → medium blue     (#0D3060)
+   * Bottom    → teal-cyan green (#007B6E → #00A896)
+   */
   background:
-    radial-gradient(ellipse 130% 65% at 75% -5%,  rgba(30,155,165,0.85) 0%, transparent 52%),
-    radial-gradient(ellipse 90%  55% at -5% 65%,  rgba(15, 95,108,0.70) 0%, transparent 52%),
-    radial-gradient(ellipse 70%  50% at 55% 110%, rgba(20,110,125,0.55) 0%, transparent 55%),
-    linear-gradient(175deg, #0F6878 0%, #0D7080 25%, #0C6070 55%, #0A5060 80%, #094858 100%);
+    radial-gradient(ellipse 110% 60% at 100% 0%,   #103A6A 0%, transparent 55%),
+    radial-gradient(ellipse 80%  55% at 0%   0%,   #0A1A35 0%, transparent 50%),
+    radial-gradient(ellipse 100% 50% at 50%  100%, #009688 0%, transparent 55%),
+    linear-gradient(160deg,
+      #0B1E3A 0%,
+      #0D2A55 20%,
+      #0A3050 40%,
+      #085060 65%,
+      #006E6A 85%,
+      #00897B 100%
+    );
   min-height: 100vh;
   color: var(--text-primary);
   overflow-x: hidden;
@@ -46,93 +60,102 @@ body {
   overflow: hidden;
 }
 
+/* Grid — subtle, matches the "data grid" feel of SMCI posts */
 .bg-grid {
   position: absolute;
   inset: -50%;
   width: 200%;
   height: 200%;
   background-image:
-    linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
-  background-size: 56px 56px;
+    linear-gradient(rgba(0,201,177,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,201,177,0.06) 1px, transparent 1px);
+  background-size: 52px 52px;
   animation: gridDrift 30s linear infinite;
-  mask-image: radial-gradient(ellipse 75% 75% at 50% 40%, black 15%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 10%, transparent 75%);
 }
 
 @keyframes gridDrift {
   0%   { transform: translateY(0px)  rotate(0deg);   }
-  100% { transform: translateY(56px) rotate(0.3deg); }
+  100% { transform: translateY(52px) rotate(0.3deg); }
 }
 
+/* Orbs — blue top, teal bottom matching gradient */
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(85px);
+  filter: blur(90px);
   animation: orbFloat linear infinite;
 }
 .orb-1 {
   width: 700px; height: 700px;
-  top: -18%; right: -6%;
-  background: radial-gradient(circle, rgba(45,218,180,0.28) 0%, transparent 62%);
-  animation-duration: 20s;
+  top: -15%; right: -5%;
+  background: radial-gradient(circle, rgba(16,58,106,0.9) 0%, transparent 65%);
+  animation-duration: 22s;
 }
 .orb-2 {
-  width: 560px; height: 560px;
-  top: 38%; left: -10%;
-  background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 58%);
-  animation-duration: 27s;
+  width: 600px; height: 600px;
+  top: 30%; left: -8%;
+  background: radial-gradient(circle, rgba(10,26,53,0.8) 0%, transparent 60%);
+  animation-duration: 28s;
   animation-direction: reverse;
 }
 .orb-3 {
-  width: 420px; height: 420px;
-  bottom: 5%; right: 18%;
-  background: radial-gradient(circle, rgba(45,218,180,0.18) 0%, transparent 60%);
-  animation-duration: 33s;
+  width: 550px; height: 550px;
+  bottom: -5%; right: 10%;
+  background: radial-gradient(circle, rgba(0,150,136,0.7) 0%, transparent 62%);
+  animation-duration: 25s;
 }
 .orb-4 {
-  width: 320px; height: 320px;
-  top: 52%; left: 38%;
-  background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 58%);
-  animation-duration: 23s;
-  animation-delay: -9s;
+  width: 400px; height: 400px;
+  bottom: 20%; left: 20%;
+  background: radial-gradient(circle, rgba(0,120,110,0.5) 0%, transparent 60%);
+  animation-duration: 20s;
+  animation-delay: -10s;
+}
+.orb-5 {
+  width: 300px; height: 300px;
+  top: 50%; left: 50%;
+  background: radial-gradient(circle, rgba(0,201,177,0.12) 0%, transparent 60%);
+  animation-duration: 18s;
+  animation-delay: -5s;
 }
 
 @keyframes orbFloat {
   0%,100% { transform: translateY(0px)   translateX(0px)   scale(1);    }
-  25%      { transform: translateY(-28px) translateX(18px)  scale(1.04); }
-  50%      { transform: translateY(-46px) translateX(-13px) scale(0.97); }
-  75%      { transform: translateY(-18px) translateX(24px)  scale(1.02); }
+  25%      { transform: translateY(-25px) translateX(15px)  scale(1.03); }
+  50%      { transform: translateY(-42px) translateX(-10px) scale(0.97); }
+  75%      { transform: translateY(-15px) translateX(20px)  scale(1.02); }
 }
 
-/* Subtle scanlines */
+/* Candlestick-like shimmer lines (matches SMCI trading post aesthetic) */
 .scanlines {
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
     0deg, transparent, transparent 3px,
-    rgba(0,0,0,0.012) 3px, rgba(0,0,0,0.012) 4px
+    rgba(0,0,0,0.018) 3px, rgba(0,0,0,0.018) 4px
   );
 }
 
 /* ── GLASS CARDS ── */
 .glass {
-  background: rgba(255,255,255,0.09);
-  border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.13);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .glass-hover {
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 .glass-hover:hover {
-  background: rgba(255,255,255,0.14);
-  border-color: rgba(45,218,180,0.5);
-  box-shadow: 0 10px 44px rgba(0,0,0,0.18);
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(0,201,177,0.45);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
   transform: translateY(-3px);
 }
 .glass-gold:hover {
-  border-color: rgba(245,200,66,0.5);
+  border-color: rgba(245,200,66,0.45);
 }
 
 /* ── TYPOGRAPHY ── */
@@ -147,11 +170,11 @@ body {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--cyan-bright);
   padding: 5px 14px;
-  border: 1px solid rgba(45,218,180,0.5);
+  border: 1px solid rgba(0,201,177,0.45);
   border-radius: 100px;
-  background: rgba(45,218,180,0.13);
+  background: rgba(0,201,177,0.12);
 }
 .tag-gold {
   color: var(--gold);
@@ -165,11 +188,18 @@ body {
   height: 1px;
   background: linear-gradient(90deg,
     transparent,
-    rgba(255,255,255,0.22) 30%,
-    rgba(45,218,180,0.30) 50%,
-    rgba(255,255,255,0.22) 70%,
+    rgba(255,255,255,0.15) 30%,
+    rgba(0,201,177,0.35) 50%,
+    rgba(255,255,255,0.15) 70%,
     transparent
   );
+}
+
+/* ── CYAN ACCENT BAR (like SMCI IG post middle bar) ── */
+.accent-bar {
+  background: linear-gradient(90deg, #00C9B1, #1ADFC4);
+  color: #003D38;
+  font-weight: 800;
 }
 
 /* ── BUTTONS ── */
@@ -179,8 +209,8 @@ body {
   gap: 8px;
   padding: 14px 32px;
   border-radius: 100px;
-  background: var(--cyan);
-  color: #08404C;
+  background: linear-gradient(135deg, #00C9B1, #1ADFC4);
+  color: #003D38;
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 800;
@@ -192,8 +222,8 @@ body {
   text-decoration: none;
 }
 .btn-primary:hover {
-  background: #50EDD0;
-  box-shadow: 0 0 38px rgba(45,218,180,0.6);
+  background: linear-gradient(135deg, #1ADFC4, #33EDD4);
+  box-shadow: 0 0 36px rgba(0,201,177,0.55);
   transform: translateY(-1px);
 }
 
@@ -203,21 +233,21 @@ body {
   gap: 8px;
   padding: 12px 28px;
   border-radius: 100px;
-  background: rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.08);
   color: #fff;
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  border: 1px solid rgba(255,255,255,0.28);
+  border: 1px solid rgba(255,255,255,0.25);
   cursor: pointer;
   transition: all 0.25s;
   text-decoration: none;
 }
 .btn-outline:hover {
-  background: rgba(255,255,255,0.18);
-  border-color: rgba(255,255,255,0.50);
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(255,255,255,0.45);
 }
 
 /* ── CARD ACCENT TOP LINE ── */
@@ -234,7 +264,7 @@ body {
 
 /* ── GRADIENT HEADING TEXT ── */
 .gradient-text {
-  background: linear-gradient(135deg, #fff 0%, #2DDAB4 50%, #1EC8A4 100%);
+  background: linear-gradient(135deg, #fff 0%, #1ADFC4 50%, #00C9B1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -243,8 +273,8 @@ body {
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(45,218,180,0.45); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(45,218,180,0.70); }
+::-webkit-scrollbar-thumb { background: rgba(0,201,177,0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,201,177,0.65); }
 
 @keyframes particlePulse {
   0%,100% { opacity: 0.3; transform: scale(1);   }

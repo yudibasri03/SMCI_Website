@@ -6,17 +6,12 @@ export default function AnimatedBackground() {
       <div className="orb orb-2" />
       <div className="orb orb-3" />
       <div className="orb orb-4" />
+      <div className="orb orb-5" />
       <div className="scanlines" />
-      {/* Soft top highlight */}
+      {/* Top vignette - blue side */}
       <div style={{
-        position: "absolute", top: 0, left: 0, right: 0, height: "45%",
-        background: "linear-gradient(to bottom, rgba(255,255,255,0.07) 0%, transparent 100%)",
-        pointerEvents: "none",
-      }} />
-      {/* Subtle bottom depth */}
-      <div style={{
-        position: "absolute", bottom: 0, left: 0, right: 0, height: "35%",
-        background: "linear-gradient(to bottom, transparent, rgba(5,40,50,0.4))",
+        position: "absolute", top: 0, left: 0, right: 0, height: "40%",
+        background: "linear-gradient(to bottom, rgba(10,26,53,0.5) 0%, transparent 100%)",
         pointerEvents: "none",
       }} />
     </div>

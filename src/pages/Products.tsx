@@ -207,7 +207,7 @@ const tabs = ["Paket Mentoring", "Per Mentor", "Indicator & Ebook"];
 // ── COMPONENT ─────────────────────────────────────────────────────────────────
 
 function isGold(color: string) { return color === "var(--gold)"; }
-function rgb(color: string) { return isGold(color) ? "240,180,41" : "45,218,180"; }
+function rgb(color: string) { return isGold(color) ? "240,180,41" : "0,201,177"; }
 
 export default function Products() {
   const [, navigate] = useLocation();
@@ -293,7 +293,7 @@ export default function Products() {
           {/* ── TAB 0: PAKET MENTORING ── */}
           {activeTab === 0 && (
             <motion.div key="packages" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>
-              <div className="glass" style={{ borderRadius: 16, padding: "16px 22px", marginBottom: 36, display: "flex", alignItems: "center", gap: 14, borderColor: "rgba(45,218,180,0.15)" }}>
+              <div className="glass" style={{ borderRadius: 16, padding: "16px 22px", marginBottom: 36, display: "flex", alignItems: "center", gap: 14, borderColor: "rgba(0,201,177,0.15)" }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
                 <p style={{ fontSize: 14, color: "var(--text-muted)", lineHeight: 1.6 }}>
                   <strong style={{ color: "#fff" }}>Elite</strong> — akses 4 mentor SMCI dengan sesi terjadwal.&nbsp;&nbsp;
@@ -390,7 +390,7 @@ export default function Products() {
                       </div>
                       {selectedMentor === m.id && (
                         <div style={{ width: 22, height: 22, borderRadius: "50%", background: m.color, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#08404C" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#003D38" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
                         </div>
                       )}
                     </div>
@@ -502,7 +502,7 @@ export default function Products() {
 
         {/* ── BOTTOM CTA ── */}
         <FadeIn delay={0.2}>
-          <div className="glass" style={{ borderRadius: 22, padding: "36px 40px", marginTop: 64, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 24, borderColor: "rgba(45,218,180,0.15)" }}>
+          <div className="glass" style={{ borderRadius: 22, padding: "36px 40px", marginTop: 64, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 24, borderColor: "rgba(0,201,177,0.15)" }}>
             <div>
               <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 700, marginBottom: 8 }}>Bingung pilih produk yang tepat?</h3>
               <p style={{ fontSize: "15px", color: "var(--text-muted)" }}>Konsultasikan kebutuhan kamu dengan tim kami — gratis, tanpa komitmen.</p>
