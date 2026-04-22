@@ -40,15 +40,16 @@ export default function Navbar() {
     <>
       <header style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
-        padding: "0 clamp(1.25rem,5vw,3.5rem)",
-        height: "68px",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
         background: scrolled ? "rgba(10,22,48,0.93)" : "transparent",
         backdropFilter: scrolled ? "blur(24px)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(24px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.11)" : "1px solid transparent",
         transition: "all 0.35s ease",
+        height: "68px",
+        display: "flex", alignItems: "center",
       }}>
+        {/* Inner container — same maxWidth and padding as hero content */}
+        <div style={{ width: "100%", maxWidth: 1100, margin: "0 auto", padding: "0 clamp(1.25rem,5vw,3.5rem)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
         <button onClick={() => handleNav("/")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", padding: 0 }}>
           <img
@@ -97,6 +98,7 @@ export default function Navbar() {
             <span style={{ display: "block", width: 18, height: 1.5, background: menuOpen ? "var(--cyan)" : "rgba(255,255,255,0.7)", transition: "all 0.3s", transform: menuOpen ? "translateY(-5.25px) rotate(-45deg)" : "none" }} />
           </button>
         )}
+        </div>
       </header>
 
       {/* Mobile menu overlay */}
