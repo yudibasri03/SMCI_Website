@@ -277,7 +277,7 @@ export default function Home() {
                   <img
                     src={`/${m.name}.png`}
                     alt={m.name}
-                    style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover", marginBottom: 16, display: "block", filter: `drop-shadow(0 0 8px rgba(${rgb(m.color)},0.5))` }}
+                    style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover", marginBottom: 16, display: "block", filter: `drop-shadow(0 0 8px rgba(${rgb(m.color)},0.5))` }}
                   />
 
                   <div style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, marginBottom: 6 }}>{m.name}</div>
