@@ -133,7 +133,7 @@ export default function Home() {
         {/* Left-side vignette — text stays readable */}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(8,18,42,0.88) 0%, rgba(8,18,42,0.60) 40%, rgba(8,18,42,0.10) 70%, transparent 100%)", pointerEvents: "none", zIndex: 1 }} />
 
-        <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", padding: "100px clamp(1.25rem,5vw,3.5rem) 64px", zIndex: 2 }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", width: "100%", padding: "100px clamp(1.25rem,4vw,2.5rem) 64px", zIndex: 2 }}>
 
           {/* Stats row */}
           <motion.div {...fadeUp(0.1)} style={{ display: "flex", gap: "clamp(20px,5vw,56px)", marginBottom: 48, borderBottom: "1px solid rgba(255,255,255,0.09)", paddingBottom: 28, flexWrap: "wrap" }}>
@@ -205,8 +205,8 @@ export default function Home() {
       </section>
 
       {/* ── HIGHLIGHTS ── */}
-      <section style={{ padding: "72px clamp(1.25rem,5vw,3.5rem)" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <section style={{ padding: "72px clamp(1.25rem,4vw,2.5rem)" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <FadeIn>
             <span className="tag" style={{ marginBottom: 16, display: "inline-block" }}>Apa yang Kami Tawarkan</span>
             <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem,4vw,3rem)", fontWeight: 800, marginBottom: 14, letterSpacing: "-0.02em" }}>
@@ -250,8 +250,8 @@ export default function Home() {
       <div className="divider" />
 
       {/* ── MENTOR PREVIEW ── */}
-      <section style={{ padding: "72px clamp(1.25rem,5vw,3.5rem)" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <section style={{ padding: "72px clamp(1.25rem,4vw,2.5rem)" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <FadeIn>
             <span className="tag" style={{ marginBottom: 16, display: "inline-block" }}>Tim Mentor</span>
             <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem,4vw,3rem)", fontWeight: 800, marginBottom: 14, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
@@ -290,7 +290,7 @@ export default function Home() {
       <div className="divider" />
 
       {/* ── CTA ── */}
-      <section style={{ padding: "80px clamp(1.25rem,5vw,3.5rem)", textAlign: "center", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "80px clamp(1.25rem,4vw,2.5rem)", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "min(500px,90vw)", height: 300, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(0,201,177,0.08) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />
         <FadeIn>
           <div style={{ maxWidth: 560, margin: "0 auto", position: "relative", zIndex: 1 }}>

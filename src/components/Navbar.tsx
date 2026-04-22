@@ -49,7 +49,7 @@ export default function Navbar() {
         display: "flex", alignItems: "center",
       }}>
         {/* Inner container — same padding as hero content, no maxWidth so left edge is identical */}
-        <div style={{ width: "100%", padding: "0 clamp(1.25rem,5vw,3.5rem)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ width: "100%", padding: "0 clamp(1.25rem,4vw,2.5rem)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
         <button onClick={() => handleNav("/")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", padding: 0 }}>
           <img
@@ -107,7 +107,7 @@ export default function Navbar() {
           <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.22 }}
             style={{ position: "fixed", inset: 0, zIndex: 40, background: "rgba(10,20,42,0.97)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", paddingTop: "68px", display: "flex", flexDirection: "column" }}>
             <div style={{ height: 1, background: "linear-gradient(90deg, transparent, var(--cyan), transparent)" }} />
-            <nav style={{ flex: 1, padding: "20px clamp(1.25rem,5vw,2rem) 0", display: "flex", flexDirection: "column", gap: 3, overflowY: "auto" }}>
+            <nav style={{ flex: 1, padding: "20px clamp(1.25rem,4vw,2.5rem) 0", display: "flex", flexDirection: "column", gap: 3, overflowY: "auto" }}>
               {navLinks.map(({ href, label }, i) => (
                 <motion.button key={href} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.04 }}
                   onClick={() => handleNav(href)}
@@ -117,7 +117,7 @@ export default function Navbar() {
                 </motion.button>
               ))}
             </nav>
-            <div style={{ padding: "20px clamp(1.25rem,5vw,2rem) 36px" }}>
+            <div style={{ padding: "20px clamp(1.25rem,4vw,2.5rem) 36px" }}>
               <button onClick={() => handleNav("/contact")} className="btn-primary" style={{ width: "100%", justifyContent: "center", padding: "16px", fontSize: "14px" }}>
                 Mulai Sekarang
               </button>

@@ -20,8 +20,8 @@ export default function Footer() {
   const [, navigate] = useLocation();
 
   return (
-    <footer style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.12)", background: "rgba(8,18,40,0.80)", padding: "64px clamp(1.5rem,5vw,3.5rem) 32px" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+    <footer style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.12)", background: "rgba(8,18,40,0.80)", padding: "64px clamp(1.25rem,4vw,2.5rem) 32px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(200px,100%), 1fr))", gap: "clamp(28px,4vw,48px)", marginBottom: "48px" }}>
           {/* Brand */}
           <div>

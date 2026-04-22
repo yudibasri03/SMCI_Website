@@ -85,8 +85,8 @@ export default function Products() {
   const selected = mentorProducts.find(m => m.id === selectedMentor);
 
   return (
-    <div style={{ padding: "100px clamp(1.25rem,5vw,3.5rem) 80px" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+    <div style={{ padding: "100px clamp(1.25rem,4vw,2.5rem) 80px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto" }}>
 
         <FadeIn>
           <span className="tag" style={{ marginBottom: 16, display: "inline-block" }}>Produk Kami</span>
