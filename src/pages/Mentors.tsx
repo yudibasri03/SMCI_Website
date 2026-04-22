@@ -48,7 +48,7 @@ export default function Mentors() {
           </p>
         </FadeIn>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(480px,100%), 1fr))", gap: 24 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(420px, 100%), 1fr))", gap: 24 }}>
           {mentors.map((mentor, i) => (
             <FadeIn key={mentor.name} delay={i * 0.07}>
               <div className="glass glass-hover" style={{ borderRadius: 20, overflow: "hidden", position: "relative" }}>

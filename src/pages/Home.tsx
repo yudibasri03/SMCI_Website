@@ -49,18 +49,37 @@ function WaveCanvas() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const isMobile = window.innerWidth < 768;
+    // On mobile: fewer points, no shadow, fewer layers = much faster
+    const step   = isMobile ? 4 : 1.5;
+    const dpr    = isMobile ? 1 : Math.min(window.devicePixelRatio, 2);
+
     let raf: number;
     let t = 0;
 
     const resize = () => {
-      canvas.width  = canvas.offsetWidth  * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      canvas.width  = canvas.offsetWidth  * dpr;
+      canvas.height = canvas.offsetHeight * dpr;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
     };
     resize();
 
     const observer = new ResizeObserver(resize);
     observer.observe(canvas);
+
+    // Mobile: 2 layers only. Desktop: 4 layers
+    const waveDefs = isMobile
+      ? [
+          [0.10, 1.6, 1.0,  0.52, 1.8, 0.85, 255, 255, 255],
+          [0.08, 2.0, 0.75, 0.51, 0.8, 0.40,  80, 230, 210],
+        ] as const
+      : [
+          [0.11, 1.6, 1.0,  0.52, 2.0, 0.95, 255, 255, 255],
+          [0.09, 2.0, 0.75, 0.51, 1.0, 0.55,  80, 230, 210],
+          [0.13, 1.2, 1.25, 0.53, 0.8, 0.30,   0, 200, 180],
+          [0.07, 2.8, 0.50, 0.50, 0.6, 0.20,   0, 160, 220],
+        ] as const;
 
     const draw = () => {
       const W = canvas.offsetWidth;
@@ -68,29 +87,26 @@ function WaveCanvas() {
       ctx.clearRect(0, 0, W, H);
       t += 0.007;
 
-      // Multiple wave layers — thinner, more ribbon-like
-      const waves = [
-        // [amplitude, frequency, speed, yCenter, lineWidth, alpha, r, g, b]
-        [H * 0.11, 1.6, 1.0,  0.52, 2.0, 0.95, 255, 255, 255],
-        [H * 0.09, 2.0, 0.75, 0.51, 1.0, 0.55,  80, 230, 210],
-        [H * 0.13, 1.2, 1.25, 0.53, 0.8, 0.30,   0, 200, 180],
-        [H * 0.07, 2.8, 0.50, 0.50, 0.6, 0.20,   0, 160, 220],
-      ] as const;
-
-      waves.forEach(([amp, freq, speed, yBase, lw, alpha, r, g, b]) => {
+      waveDefs.forEach(([ampRatio, freq, speed, yBase, lw, alpha, r, g, b]) => {
+        const amp = H * (ampRatio as number);
         ctx.beginPath();
-        for (let x = 0; x <= W; x += 1.5) {
+        for (let x = 0; x <= W; x += step) {
           const px = x / W;
-          const phase = px * Math.PI * 2 * freq;
-          const y = H * yBase
-            + Math.sin(phase + t * speed)       * amp
-            + Math.sin(phase * 0.5 + t * speed * 0.6) * amp * 0.35;
+          const phase = px * Math.PI * 2 * (freq as number);
+          const y = H * (yBase as number)
+            + Math.sin(phase + t * (speed as number)) * amp
+            + Math.sin(phase * 0.5 + t * (speed as number) * 0.6) * amp * 0.35;
           x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         }
         ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
-        ctx.lineWidth   = lw;
-        ctx.shadowColor = `rgba(${r},${g},${b},0.7)`;
-        ctx.shadowBlur  = lw === 2.0 ? 14 : 6;
+        ctx.lineWidth   = lw as number;
+        // Only apply shadow on desktop - it's expensive on mobile GPU
+        if (!isMobile) {
+          ctx.shadowColor = `rgba(${r},${g},${b},0.7)`;
+          ctx.shadowBlur  = (lw as number) === 2.0 ? 14 : 6;
+        } else {
+          ctx.shadowBlur = 0;
+        }
         ctx.stroke();
       });
 
@@ -266,7 +282,7 @@ export default function Home() {
             </div>
           </FadeIn>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(220px, calc(50% - 8px)), 1fr))", gap: 16 }}>
             {mentorPreview.map((m) => (
               <FadeIn key={m.name}>
                 <div className="glass glass-hover" style={{ borderRadius: 18, padding: "28px 24px", position: "relative", overflow: "hidden", cursor: "pointer", height: "100%" }}

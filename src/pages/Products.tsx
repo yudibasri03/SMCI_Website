@@ -178,7 +178,7 @@ export default function Products() {
               </p>
 
               {/* Mentor grid — same style as Home mentor cards */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 24 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(220px, calc(50% - 8px)), 1fr))", gap: 16, marginBottom: 24 }}>
                 {mentorProducts.map((m, i) => (
                   <motion.button key={m.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06, duration: 0.4 }}
                     onClick={() => {
