@@ -74,14 +74,11 @@ export default function Home() {
       {/* ── HERO ── */}
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(1.25rem,5vw,3.5rem) 64px", position: "relative", overflow: "hidden" }}>
 
-        {/* Aurora wave ribbons — inside hero only */}
+        {/* Aurora snake ribbon — single flowing line like reference */}
         <div className="aurora-canvas">
-          <div className="aurora-dark aurora-d1" />
-          <div className="aurora-dark aurora-d2" />
-          <div className="aurora-wave aurora-w3" />
-          <div className="aurora-wave aurora-w2" />
-          <div className="aurora-wave aurora-w1" />
-          <div className="aurora-wave aurora-w4" />
+          <div className="aurora-vignette-top" />
+          <div className="aurora-snake" />
+          <div className="aurora-vignette-bottom" />
         </div>
 
         <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", zIndex: 1 }}>
