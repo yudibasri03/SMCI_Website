@@ -194,7 +194,7 @@ export default function Products() {
                     style={{ background: selectedMentor === m.id ? `rgba(${rgb(m.color)},0.12)` : "rgba(255,255,255,0.07)", border: `1.5px solid ${selectedMentor === m.id ? m.color : "rgba(255,255,255,0.12)"}`, borderRadius: 16, padding: "18px 16px", cursor: "pointer", textAlign: "left", transition: "all 0.22s", position: "relative", overflow: "hidden" }}>
                     {selectedMentor === m.id && <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${m.color} 0%, transparent 100%)` }} />}
                     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
-                      <img src={`/${m.name}.png`} alt={m.name} style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", flexShrink: 0, filter: `drop-shadow(0 0 6px rgba(${rgb(m.color)},0.45))` }} />
+                      <img src={`/${m.name}.png`} alt={m.name} style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", objectPosition: "center 15%", flexShrink: 0, filter: `drop-shadow(0 0 6px rgba(${rgb(m.color)},0.45))` }} />
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 700, color: "#fff" }}>{m.name}</div>
                         <div style={{ fontSize: "11px", color: m.color, fontWeight: 600, marginTop: 1 }}>{m.specialty}</div>
@@ -219,7 +219,7 @@ export default function Products() {
 
                     {/* Header */}
                     <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
-                      <img src={`/${selected.name}.png`} alt={selected.name} style={{ width: 96, height: 96, borderRadius: "50%", objectFit: "cover", flexShrink: 0, filter: `drop-shadow(0 0 10px rgba(${rgb(selected.color)},0.5))` }} />
+                      <img src={`/${selected.name}.png`} alt={selected.name} style={{ width: 96, height: 96, borderRadius: "50%", objectFit: "cover", objectPosition: "center 15%", flexShrink: 0, filter: `drop-shadow(0 0 10px rgba(${rgb(selected.color)},0.5))` }} />
                       <div>
                         <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(18px,4vw,22px)", fontWeight: 800, marginBottom: 2 }}>Mentoring dengan {selected.name}</h3>
                         <span style={{ fontSize: "13px", color: selected.color, fontWeight: 600 }}>{selected.role}</span>

@@ -60,7 +60,7 @@ export default function Mentors() {
                     <img
                       src={`/${mentor.name}.png`}
                       alt={mentor.name}
-                      style={{ width: 110, height: 110, borderRadius: "50%", objectFit: "cover", display: "block", filter: `drop-shadow(0 0 10px rgba(${rgb(mentor.color)},0.5))` }}
+                      style={{ width: 110, height: 110, borderRadius: "50%", objectFit: "cover", objectPosition: "center 15%", display: "block", filter: `drop-shadow(0 0 10px rgba(${rgb(mentor.color)},0.5))` }}
                     />
                     <div style={{ position: "absolute", bottom: 2, right: 2, width: 14, height: 14, borderRadius: "50%", background: "#22c55e", border: "2px solid rgba(10,20,45,0.8)" }} />
                   </div>
