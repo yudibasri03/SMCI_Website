@@ -127,13 +127,13 @@ export default function Home() {
   return (
     <div>
       {/* ── HERO ── */}
-      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(1.25rem,5vw,3.5rem) 64px", position: "relative", overflow: "hidden" }}>
+      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
         <WaveCanvas />
 
         {/* Left-side vignette — text stays readable */}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(8,18,42,0.88) 0%, rgba(8,18,42,0.60) 40%, rgba(8,18,42,0.10) 70%, transparent 100%)", pointerEvents: "none", zIndex: 1 }} />
 
-        <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", zIndex: 2 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", padding: "100px clamp(1.25rem,5vw,3.5rem) 64px", zIndex: 2 }}>
 
           {/* Stats row */}
           <motion.div {...fadeUp(0.1)} style={{ display: "flex", gap: "clamp(20px,5vw,56px)", marginBottom: 48, borderBottom: "1px solid rgba(255,255,255,0.09)", paddingBottom: 28, flexWrap: "wrap" }}>

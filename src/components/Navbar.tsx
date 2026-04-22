@@ -48,8 +48,8 @@ export default function Navbar() {
         height: "68px",
         display: "flex", alignItems: "center",
       }}>
-        {/* Inner container — same maxWidth and padding as hero content */}
-        <div style={{ width: "100%", maxWidth: 1100, margin: "0 auto", padding: "0 clamp(1.25rem,5vw,3.5rem)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        {/* Inner container — same padding as hero content, no maxWidth so left edge is identical */}
+        <div style={{ width: "100%", padding: "0 clamp(1.25rem,5vw,3.5rem)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
         <button onClick={() => handleNav("/")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", padding: 0 }}>
           <img
