@@ -1,0 +1,25 @@
+{
+  "name": "SMCI Community",
+  "short_name": "SMCI",
+  "description": "Komunitas Trading Smart Money Concept Indonesia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1E3A",
+  "theme_color": "#0B1E3A",
+  "orientation": "portrait-primary",
+  "lang": "id",
+  "icons": [
+    { "src": "/favicon-32.png",  "sizes": "32x32",   "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["education", "finance"],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "SMCI Community Homepage"
+    }
+  ]
+}

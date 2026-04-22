@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://smci.co.id/sitemap.xml
+
+# Disallow admin/dev paths
+Disallow: /src/
+Disallow: /*.json$
