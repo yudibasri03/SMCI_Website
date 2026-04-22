@@ -48,7 +48,7 @@ export default function Mentors() {
           </p>
         </FadeIn>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(480px,100%), 1fr))", gap: 24 }}>
           {mentors.map((mentor, i) => (
             <FadeIn key={mentor.name} delay={i * 0.07}>
               <div className="glass glass-hover" style={{ borderRadius: 20, overflow: "hidden", position: "relative" }}>
@@ -57,10 +57,12 @@ export default function Mentors() {
                 {/* Header row — always horizontal */}
                 <div style={{ padding: "clamp(20px,4vw,32px)", paddingBottom: 20, display: "flex", alignItems: "center", gap: 16 }}>
                   <div style={{ position: "relative", flexShrink: 0 }}>
-                    <div style={{ width: 64, height: 64, borderRadius: "50%", background: `rgba(${rgb(mentor.color)},0.15)`, border: `2px solid rgba(${rgb(mentor.color)},0.4)`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 28, color: mentor.color }}>
-                      {mentor.initial}
-                    </div>
-                    <div style={{ position: "absolute", bottom: 1, right: 1, width: 14, height: 14, borderRadius: "50%", background: "#22c55e", border: "2px solid rgba(10,20,45,0.8)" }} />
+                    <img
+                      src={`/${mentor.name}.png`}
+                      alt={mentor.name}
+                      style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover", display: "block", filter: `drop-shadow(0 0 10px rgba(${rgb(mentor.color)},0.5))` }}
+                    />
+                    <div style={{ position: "absolute", bottom: 2, right: 2, width: 14, height: 14, borderRadius: "50%", background: "#22c55e", border: "2px solid rgba(10,20,45,0.8)" }} />
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(18px,4vw,24px)", fontWeight: 800, marginBottom: 2 }}>{mentor.name}</h2>

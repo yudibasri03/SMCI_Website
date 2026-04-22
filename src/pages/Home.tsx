@@ -266,19 +266,32 @@ export default function Home() {
             </div>
           </FadeIn>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(200px,calc(50% - 8px)), 1fr))", gap: 12 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
             {mentorPreview.map((m) => (
               <FadeIn key={m.name}>
-                <div className="glass glass-hover" style={{ borderRadius: 16, padding: "20px 18px", position: "relative", overflow: "hidden", cursor: "pointer" }}
+                <div className="glass glass-hover" style={{ borderRadius: 18, padding: "28px 24px", position: "relative", overflow: "hidden", cursor: "pointer", height: "100%" }}
                   onClick={() => navigate(`/products?tab=permentor&mentor=${m.id}`)}>
                   <div className="card-accent-top" style={{ background: `linear-gradient(90deg, ${m.color} 0%, transparent 100%)` }} />
-                  <div style={{ width: 40, height: 40, borderRadius: "50%", background: `rgba(${rgb(m.color)},0.15)`, border: `1px solid rgba(${rgb(m.color)},0.3)`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 17, color: m.color, marginBottom: 12 }}>
-                    {m.initial}
+
+                  {/* Photo */}
+                  <img
+                    src={`/${m.name}.png`}
+                    alt={m.name}
+                    style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover", marginBottom: 16, display: "block", filter: `drop-shadow(0 0 8px rgba(${rgb(m.color)},0.5))` }}
+                  />
+
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, marginBottom: 6 }}>{m.name}</div>
+                  <div style={{ fontSize: "13px", color: m.color, fontWeight: 600, marginBottom: 8 }}>{m.role}</div>
+                  <div style={{ fontSize: "13px", color: "var(--text-muted)", lineHeight: 1.6, marginBottom: 20 }}>
+                    {m.id === "oscar"   && "Fondasi SMC, market structure, dan high probability entry."}
+                    {m.id === "james"   && "Volume Profile, Order Flow, dan institutional footprint."}
+                    {m.id === "wahyudi" && "Trading psychology, disiplin, dan Prop Firm challenge."}
+                    {m.id === "albert"  && "News trading, fundamental, dan analisis makro."}
                   </div>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: "15px", fontWeight: 700, marginBottom: 4 }}>{m.name}</div>
-                  <div style={{ fontSize: "12px", color: "var(--text-muted)", lineHeight: 1.5, marginBottom: 10 }}>{m.role}</div>
-                  <div style={{ fontSize: "12px", color: m.color, fontWeight: 600, display: "flex", alignItems: "center", gap: 4 }}>
-                    Pilih <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+
+                  <div style={{ display: "flex", alignItems: "center", gap: 5, color: m.color, fontSize: "13px", fontWeight: 600, fontFamily: "var(--font-display)" }}>
+                    Pilih Mentor
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </div>
                 </div>
               </FadeIn>
