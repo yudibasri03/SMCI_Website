@@ -8,10 +8,9 @@ export default function AnimatedBackground() {
       <div className="orb orb-4" />
       <div className="orb orb-5" />
       <div className="scanlines" />
-      {/* Top vignette - blue side */}
       <div style={{
         position: "absolute", top: 0, left: 0, right: 0, height: "40%",
-        background: "linear-gradient(to bottom, rgba(10,26,53,0.5) 0%, transparent 100%)",
+        background: "linear-gradient(to bottom, rgba(10,26,53,0.45) 0%, transparent 100%)",
         pointerEvents: "none",
       }} />
     </div>
