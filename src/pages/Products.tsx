@@ -2,9 +2,28 @@ import { useState, useEffect } from "react";
 import { useLocation, useSearch } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "../components/FadeIn";
+import CheckoutModal, { type ProductCheckout } from "../components/CheckoutModal";
 
 function isGold(c: string) { return c === "var(--gold)"; }
 function rgb(c: string) { return isGold(c) ? "240,180,41" : "0,201,177"; }
+
+// ── MAYAR PAYMENT LINKS ──
+// Ganti URL di bawah dengan link Mayar yang sebenarnya dari dashboard mayar.id
+const MAYAR_LINKS = {
+  elite:        "https://smcindonesia.myr.id/pl/smci-private-mentoring-elite/",
+  ultimate:     "https://smcindonesia.myr.id/pl/smci-private-mentoring-ultimate/",
+  oscar:        "https://mayar.id/smci/mentor-oscar",
+  james:        "https://mayar.id/smci/mentor-james",
+  wahyudi:      "https://mayar.id/smci/mentor-wahyudi",
+  albert:       "https://mayar.id/smci/mentor-albert",
+  "all-in-one": "https://mayar.id/smci/indicator-all-in-one",
+  "simple-entry":"https://mayar.id/smci/indicator-simple-entry",
+  ebook:        "https://mayar.id/smci/ebook",
+};
+
+const openMayar = (key: keyof typeof MAYAR_LINKS) => {
+  window.open(MAYAR_LINKS[key], "_blank", "noopener,noreferrer");
+};
 
 const mentorProducts = [
   { id: "oscar",   initial: "O", name: "Oscar",   role: "SMCI Strategy",              specialty: "Core SMC Method",       color: "var(--cyan)",
@@ -27,27 +46,32 @@ const mentorProducts = [
 
 const packageProducts = [
   { id: "elite",   name: "Elite",   tag: "POPULER",    tagColor: "var(--cyan)", accentColor: "var(--cyan)",
+    price: "Rp 19.926.000", originalPrice: "Rp 24.888.000",
     description: "Akses ke semua 4 mentor SMCI dengan sesi terjadwal. Kuasai SMC secara menyeluruh.",
-    mentors: ["Oscar","James","Wahyudi","Albert"], guestMentor: false,
-    features: ["Akses 4 mentor SMCI","Sesi 1-on-1 terjadwal","Materi eksklusif Elite","Review chart & setup","Feedback strategi","Grup komunitas Elite","Support WhatsApp","Sertifikat kelulusan"],
+    mentors: ["Oscar","James","Basri","Albert"], guestMentor: false,
+    features: ["Teknikal SMC tingkat lanjut (Oscar)","Analisis Volume lanjutan (James)","Psikologi & Journaling (Basri)","Fundamental & News Trading (Albert)","2 Indicator eksklusif SMCI","Grup WhatsApp Alumni + Mentor","Support belajar berkelanjutan","Sertifikat kelulusan"],
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> },
   { id: "ultimate", name: "Ultimate", tag: "TERLENGKAP", tagColor: "var(--gold)", accentColor: "var(--gold)",
-    description: "Semua keunggulan Elite + akses 1 mentor tamu eksklusif. Untuk trader serius yang siap Prop Firm.",
-    mentors: ["Oscar","James","Wahyudi","Albert"], guestMentor: true,
-    features: ["Akses 4 mentor SMCI","+ 1 mentor tamu eksklusif","Sesi tak terbatas","Panduan Prop Firm","Volume Profile & Order Flow","Psikologi mendalam","Priority support 24/7","Akses seumur hidup"],
+    price: "Rp 22.826.000", originalPrice: "Rp 29.765.000",
+    description: "Semua dari Elite + Gold Swing Mastery bersama Bpk. Gede & akses PAMM SMCI. Untuk trader serius yang ingin spesialis 1 instrumen pilihan.",
+    mentors: ["Oscar","James","Basri","Albert"], guestMentor: true,
+    features: ["Teknikal SMC lanjutan (Oscar)","Analisis Volume lanjutan (James)","Psikologi & Journaling (Basri)","Fundamental & News Trading (Albert)","Gold Swing Mastery (Gede) ✦","2 Indicator eksklusif SMCI","Grup WhatsApp Alumni + Mentor","Akses ke PAMM SMCI"],
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> },
 ];
 
 const toolProducts = [
   { id: "all-in-one", category: "Trading Indicator", name: "SMCI All-in-One", tag: "POWERFUL", tagColor: "var(--cyan)", accentColor: "var(--cyan)",
+    price: "Hubungi Kami",
     description: "Indicator lengkap: Market Structure, Supply & Demand, dan Liquidity dalam satu tool.",
     features: ["Market Structure otomatis","Supply & Demand marking","Liquidity zone detection","Multi-timeframe","TradingView compatible","Auto-update","Video panduan","Support teknis"],
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> },
   { id: "simple-entry", category: "Trading Indicator", name: "SMCI Simple Entry", tag: "SIMPEL", tagColor: "var(--gold)", accentColor: "var(--gold)",
+    price: "Hubungi Kami",
     description: "Versi ringan tanpa noise — Market Structure dan SnD terkini dengan setup SMC high probability.",
     features: ["Market Structure sederhana","Area SnD terkini","Setup high probability","Tampilan bersih","Cocok pemula","TradingView compatible","Panduan setup","Komunitas pengguna"],
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M18 20V10M12 20V4M6 20v-6"/></svg> },
   { id: "ebook", category: "Ebook", name: "SMCI Ebook", tag: "WAJIB BACA", tagColor: "var(--cyan)", accentColor: "var(--cyan)",
+    price: "Hubungi Kami",
     description: "Panduan komprehensif SMC dalam Bahasa Indonesia — dari mindset dasar hingga setup advanced.",
     features: ["Teori Smart Money Concept","Market Structure & BOS/CHOCH","Supply, Demand & FVG","Liquidity & trap setup","Manajemen risiko","Contoh setup nyata","Bahasa Indonesia","PDF seumur hidup"],
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> },
@@ -65,6 +89,11 @@ export default function Products() {
 
   const [activeTab, setActiveTab] = useState(initialTab);
   const [selectedMentor, setSelectedMentor] = useState<string | null>(initialMentor);
+  const [checkoutProduct, setCheckoutProduct] = useState<ProductCheckout | null>(null);
+
+  const openCheckout = (id: string, name: string, desc: string, color: string, price = "Hubungi Kami", originalPrice?: string) => {
+    setCheckoutProduct({ id, name, price, originalPrice, desc, color, mayarLink: MAYAR_LINKS[id as keyof typeof MAYAR_LINKS] ?? "#" });
+  };
 
   useEffect(() => {
     const p = new URLSearchParams(search);
@@ -85,6 +114,8 @@ export default function Products() {
   const selected = mentorProducts.find(m => m.id === selectedMentor);
 
   return (
+    <>
+    <CheckoutModal product={checkoutProduct} onClose={() => setCheckoutProduct(null)} />
     <div style={{ padding: "100px clamp(1.25rem,4vw,2.5rem) 80px" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
 
@@ -160,9 +191,10 @@ export default function Products() {
                         </div>
                       ))}
                     </div>
-                    <button onClick={() => navigate("/contact")} className="btn-primary"
+                    <button onClick={() => openCheckout(product.id, product.name, product.description, product.accentColor, product.price, product.originalPrice)} className="btn-primary"
                       style={{ width: "100%", justifyContent: "center", ...(isGold(product.accentColor) ? { background: "transparent", color: "var(--gold)", border: "1px solid rgba(245,200,66,0.4)" } : {}) }}>
-                      Tanya &amp; Daftar
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+                      Beli Sekarang
                     </button>
                   </motion.div>
                 ))}
@@ -250,7 +282,10 @@ export default function Products() {
                     </div>
 
                     <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                      <button onClick={() => navigate("/contact")} className="btn-primary" style={{ flex: 1, minWidth: 140, justifyContent: "center" }}>Daftar Sekarang</button>
+                      <button onClick={() => openCheckout(selected.id, `Mentoring ${selected.name}`, selected.description, selected.color)} className="btn-primary" style={{ flex: 1, minWidth: 140, justifyContent: "center" }}>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+                        Beli Sekarang
+                      </button>
                       <button onClick={() => { window.scrollTo({ top: 0 }); navigate("/mentors"); }} className="btn-outline" style={{ flex: 1, minWidth: 120, justifyContent: "center" }}>Lihat Profil</button>
                     </div>
                   </motion.div>
@@ -293,9 +328,10 @@ export default function Products() {
                         </div>
                       ))}
                     </div>
-                    <button onClick={() => navigate("/contact")} className="btn-primary"
+                    <button onClick={() => openCheckout(product.id, product.name, product.description, product.accentColor, product.price, product.originalPrice)} className="btn-primary"
                       style={{ width: "100%", justifyContent: "center", ...(isGold(product.accentColor) ? { background: "transparent", color: "var(--gold)", border: "1px solid rgba(245,200,66,0.4)" } : {}) }}>
-                      Tanya &amp; Dapatkan
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+                      Beli Sekarang
                     </button>
                   </motion.div>
                 ))}
@@ -306,15 +342,32 @@ export default function Products() {
 
         {/* Bottom CTA */}
         <FadeIn delay={0.15}>
-          <div className="glass" style={{ borderRadius: 18, padding: "clamp(22px,4vw,36px)", marginTop: 48, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20, borderColor: "rgba(0,201,177,0.15)" }}>
-            <div>
-              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(17px,3vw,20px)", fontWeight: 700, marginBottom: 6 }}>Bingung pilih produk yang tepat?</h3>
-              <p style={{ fontSize: "14px", color: "var(--text-muted)" }}>Konsultasikan kebutuhan kamu — gratis, tanpa komitmen.</p>
+          <div className="glass" style={{ borderRadius: 18, padding: "clamp(22px,4vw,36px)", marginTop: 48, borderColor: "rgba(0,201,177,0.15)" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 20, marginBottom: 20 }}>
+              <div>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(17px,3vw,20px)", fontWeight: 700, marginBottom: 6 }}>Bingung pilih produk yang tepat?</h3>
+                <p style={{ fontSize: "14px", color: "var(--text-muted)" }}>Konsultasikan kebutuhan kamu — gratis, tanpa komitmen.</p>
+              </div>
+              <button onClick={() => navigate("/contact")} className="btn-outline" style={{ flexShrink: 0, whiteSpace: "nowrap" }}>Konsultasi Gratis</button>
             </div>
-            <button onClick={() => navigate("/contact")} className="btn-primary" style={{ flexShrink: 0, whiteSpace: "nowrap" }}>Konsultasi Gratis</button>
+
+            {/* Mayar payment methods badge */}
+            <div style={{ paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.07)", display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span style={{ fontSize: "12px", color: "var(--text-muted)", fontWeight: 500 }}>Pembayaran aman via</span>
+                <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--cyan)" }}>Mayar.id</span>
+              </div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                {["Transfer Bank", "QRIS", "E-Wallet", "Kartu Kredit", "Indomaret/Alfamart"].map(m => (
+                  <span key={m} style={{ fontSize: "11px", padding: "3px 8px", borderRadius: 6, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.55)" }}>{m}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </FadeIn>
       </div>
     </div>
+    </>
   );
 }
