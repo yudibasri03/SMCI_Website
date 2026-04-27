@@ -9,6 +9,7 @@ import Mentors from "./pages/Mentors";
 import Testimonials from "./pages/Testimonials";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/testimonials" component={Testimonials} />
           <Route path="/faq" component={FAQ} />
           <Route path="/contact" component={Contact} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
         </Switch>
       </main>
       <Footer />

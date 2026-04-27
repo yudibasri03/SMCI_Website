@@ -94,9 +94,19 @@ export default function Footer() {
           <p style={{ fontSize: "13px", color: "var(--text-subtle)" }}>
             &copy; {new Date().getFullYear()} SMCI Community. All rights reserved.
           </p>
-          <p style={{ fontSize: "13px", color: "var(--text-subtle)" }}>
-            Smart Money Concept Indonesia
-          </p>
+          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+            <button
+              onClick={() => { navigate("/privacy-policy"); window.scrollTo({ top: 0 }); }}
+              style={{ background: "none", border: "none", cursor: "pointer", fontSize: "13px", color: "var(--text-subtle)", padding: 0, transition: "color 0.2s", fontFamily: "var(--font-body)" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "var(--cyan)")}
+              onMouseLeave={e => (e.currentTarget.style.color = "var(--text-subtle)")}
+            >
+              Kebijakan Privasi
+            </button>
+            <p style={{ fontSize: "13px", color: "var(--text-subtle)" }}>
+              Smart Money Concept Indonesia
+            </p>
+          </div>
         </div>
       </div>
     </footer>
