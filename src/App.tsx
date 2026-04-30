@@ -11,6 +11,16 @@ import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
+function RedirectExternal({ to }: { to: string }) {
+  useEffect(() => { window.location.replace(to); }, []);
+  return (
+    <div style={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 12 }}>
+      <p style={{ color: "var(--text-muted)", fontSize: "14px" }}>Mengalihkan...</p>
+      <a href={to} style={{ color: "var(--cyan)", fontSize: "13px" }}>Klik di sini jika tidak dialihkan otomatis</a>
+    </div>
+  );
+}
+
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
@@ -38,6 +48,9 @@ export default function App() {
           <Route path="/faq" component={FAQ} />
           <Route path="/contact" component={Contact} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/prop-fundism">
+            <RedirectExternal to="https://portal.fundism.com/register/trader?link_id=f87rkmv2&referrer_id=SMCI" />
+          </Route>
         </Switch>
       </main>
       <Footer />
